@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "title": "Radio Group",
+  "description": "Fluent2Tailwind Radio Group component.",
+  "dependencies": [
+    "@radix-ui/react-radio-group",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/radio-group/radio-group.tsx",
+      "content": "\"use client\"\n\nimport * as RadioGroupPrimitive from \"@radix-ui/react-radio-group\"\n\nimport { ComponentProps } from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nconst radioGroupSlots = tv({\n  slots: {\n    root: \"\",\n    item:\n      \"aspect-square h-4 w-4 rounded-full border border-border text-foreground shadow-sm focus:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50\",\n  },\n  variants: {\n    orientation: {\n      vertical: { root: \"grid gap-2\" },\n      horizontal: { root: \"flex flex-row items-center gap-3\" },\n    },\n  },\n  defaultVariants: {\n    orientation: \"vertical\",\n  },\n})\n\nconst { root, item } = radioGroupSlots()\n\nfunction RadioGroup({\n  className,\n  orientation = \"vertical\",\n  layout,\n  onChange,\n  ...props\n}: ComponentProps<typeof RadioGroupPrimitive.Root> & {\n  orientation?: \"horizontal\" | \"vertical\"\n  layout?: \"horizontal\" | \"vertical\"\n  onChange?: (value: string) => void\n}) {\n  const resolvedOrientation = layout ?? orientation\n  return (\n    <RadioGroupPrimitive.Root\n      data-slot=\"radio-group\"\n      orientation={resolvedOrientation}\n      onValueChange={onChange}\n      className={root({ orientation: resolvedOrientation, className })}\n      {...props}\n    />\n  )\n}\n\nfunction RadioGroupItem({\n  className,\n  value,\n  ...props\n}: ComponentProps<typeof RadioGroupPrimitive.Item>) {\n  return (\n    <RadioGroupPrimitive.Item\n      data-slot=\"radio-group-item\"\n      value={value}\n      className={item({ className })}\n      {...props}\n    >\n      <RadioGroupPrimitive.Indicator\n        data-slot=\"radio-group-indicator\"\n        className=\"flex items-center justify-center\"\n      >\n        <div className=\"fill-primary h-2 w-2 rounded-full bg-primary\" />\n      </RadioGroupPrimitive.Indicator>\n    </RadioGroupPrimitive.Item>\n  )\n}\n\nexport { RadioGroup, RadioGroupItem }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

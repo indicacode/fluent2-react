@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image",
+  "title": "Image",
+  "description": "Fluent2Tailwind Image component.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/image/image.tsx",
+      "content": "\"use client\"\nimport { tv } from \"tailwind-variants\"\n\ntype ImageProps = React.ComponentPropsWithoutRef<\"img\"> & {\n  block?: boolean\n  bordered?: boolean\n  fit?: \"none\" | \"center\" | \"contain\" | \"cover\" | \"default\"\n  shadow?: boolean\n  shape?: \"circular\" | \"rounded\" | \"square\"\n  src: string | Blob | undefined\n  alt?: string | undefined\n  width?: number\n  height?: number\n}\n\nconst imageVariants = tv({\n  variants: {\n    block: { true: \"object-contain\", false: \"\" },\n    bordered: { true: \"border-2 border-border\", false: \"\" },\n    fit: {\n      none: \"object-none\",\n      center: \"object-center\",\n      contain: \"object-contain\",\n      cover: \"object-cover\",\n      default: \"\",\n    },\n    shadow: { true: \"drop-shadow-xl\", false: \"\" },\n    shape: {\n      circular: \"rounded-full\",\n      rounded: \"rounded-2xl\",\n      square: \"rounded-none\",\n    },\n  },\n  defaultVariants: {\n    block: false,\n    bordered: false,\n    fit: \"default\",\n    shadow: false,\n    shape: \"square\",\n  },\n})\n\nexport default function Image({\n  block,\n  bordered,\n  fit,\n  shadow,\n  shape,\n  src,\n  alt,\n  width,\n  height,\n  className,\n}: ImageProps) {\n  return (\n    <img\n      src={src}\n      alt={alt}\n      width={width}\n      height={height}\n      className={imageVariants({\n        shape,\n        bordered,\n        block,\n        fit,\n        shadow,\n        className,\n      })}\n    ></img>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "link",
+  "title": "Link",
+  "description": "Fluent2Tailwind Link component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/link/link.tsx",
+      "content": "import React from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nconst linkVariants = tv({\n  base: \"text-foreground\",\n  variants: {\n    appearance: {\n      default: \"text-primary\",\n      subtle: \"\",\n    },\n    disabled: {\n      true: \"cursor-not-allowed text-muted-foreground\",\n      false: \"hover:underline\",\n    },\n    disabledFocusable: {\n      true: \"focus:ring-0 focus:outline-none\",\n      false: \"\",\n    },\n    inline: { true: \"inline underline\", false: \"\" },\n  },\n  defaultVariants: {\n    appearance: \"default\",\n    disabled: false,\n    disabledFocusable: false,\n  },\n})\n\ntype Tags = \"a\" | \"button\" | \"span\"\n\ntype PolymorphicProps<T extends React.ElementType> = {\n  as?: T\n} & LinkProps &\n  Omit<React.ComponentPropsWithoutRef<T>, keyof LinkProps | \"as\">\n\ntype LinkProps = React.ComponentPropsWithoutRef<\"a\"> & {\n  appearance?: \"default\" | \"subtle\"\n  disabled?: boolean\n  disabledFocusable?: boolean\n  inline?: boolean\n  href?: string | undefined\n}\n\nfunction Link({\n  as,\n  appearance,\n  disabled,\n  disabledFocusable,\n  inline,\n  href,\n  children,\n  className,\n  onClick,\n  ...props\n}: PolymorphicProps<Tags>) {\n  const isDisabled = disabled ?? false\n  const isDisabledFocusable = disabledFocusable ?? false\n  const isVisuallyDisabled = isDisabled || isDisabledFocusable\n  const shouldBlockInteraction = isDisabled && !isDisabledFocusable\n  const Component = (shouldBlockInteraction && \"p\") || as || \"a\"\n\n  const handleClick = (event: React.MouseEvent) => {\n    if (isVisuallyDisabled) {\n      event.preventDefault()\n      event.stopPropagation()\n      return\n    }\n    onClick?.(event as React.MouseEvent<HTMLAnchorElement>)\n  }\n\n  return (\n    <Component\n      href={shouldBlockInteraction ? undefined : href}\n      className={linkVariants({\n        appearance,\n        disabled: isVisuallyDisabled,\n        disabledFocusable,\n        inline,\n        className: [className, isDisabledFocusable ? \"opacity-100\" : \"\"].join(\n          \" \"\n        ),\n      })}\n      aria-disabled={isVisuallyDisabled || undefined}\n      tabIndex={isDisabledFocusable ? 0 : undefined}\n      role={isDisabledFocusable && Component === \"p\" ? \"link\" : undefined}\n      onClick={handleClick}\n      {...(props as any)}\n    >\n      {children}\n    </Component>\n  )\n}\n\nexport default Link\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text",
+  "title": "Text",
+  "description": "Fluent2Tailwind Text component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/text/text.tsx",
+      "content": "import React from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nconst textVariants = tv({\n  variants: {\n    align: {\n      start: \"text-start\",\n      center: \"text-center\",\n      end: \"text-end\",\n      justify: \"text-justify\",\n    },\n    block: {\n      true: \"block\",\n      false: \"\",\n    },\n    font: {\n      base: \"font-normal\",\n      numeric: \"font-numeric\",\n      monospace: \"font-mono\",\n    },\n    italic: {\n      true: \"italic\",\n      false: \"\",\n    },\n    size: {\n      100: \"text-[10px]\",\n      200: \"text-[12px]\",\n      300: \"text-[15px]\",\n      400: \"text-[18px]\",\n      500: \"text-[21px]\",\n      600: \"text-[24px]\",\n      700: \"text-[28px]\",\n      800: \"text-[32px]\",\n      900: \"text-[42px]\",\n      1000: \"text-[64px]\",\n    },\n    strikethrough: {\n      true: \"line-through\",\n      false: \"\",\n    },\n    truncate: {\n      true: \"truncate\",\n      false: \"\",\n    },\n    underline: {\n      true: \"underline\",\n      false: \"\",\n    },\n    weight: {\n      medium: \"font-medium\",\n      regular: \"font-normal\",\n      semibold: \"font-semibold\",\n      bold: \"font-bold\",\n    },\n    wrap: {\n      true: \"wrap\",\n      false: \"\",\n    },\n  },\n  defaultVariants: {\n    align: \"start\",\n    block: false,\n    font: \"base\",\n    italic: false,\n    size: 300,\n    strikethrough: false,\n    truncate: false,\n    underline: false,\n    weight: \"regular\",\n    wrap: true,\n  },\n})\n\ntype TextProps = {\n  align?: \"start\" | \"center\" | \"end\" | \"justify\"\n  block?: boolean\n  font?: \"base\" | \"numeric\" | \"monospace\"\n  italic?: boolean\n  size?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000\n  strikethrough?: boolean\n  truncate?: boolean\n  underline?: boolean\n  weight?: \"regular\" | \"medium\" | \"semibold\" | \"bold\"\n  wrap?: boolean\n  className?: string\n  children?: React.ReactNode\n}\n\ntype Tags =\n  | \"p\"\n  | \"span\"\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"h5\"\n  | \"h6\"\n  | \"b\"\n  | \"em\"\n  | \"i\"\n  | \"strong\"\n  | \"pre\"\n\n\ntype PolymorphicProps<T extends React.ElementType> = {\n  as?: T\n} & TextProps &\n  Omit<React.ComponentPropsWithoutRef<T>, keyof TextProps | \"as\">\n\nfunction Text<T extends Tags = \"p\">({\n  as,\n  align,\n  block,\n  font,\n  italic,\n  size,\n  strikethrough,\n  truncate,\n  underline,\n  weight,\n  wrap,\n  children,\n  className,\n  ...props\n}: PolymorphicProps<T>) {\n  const Component = as || \"p\"\n  return (\n    <Component\n      className={textVariants({\n        align,\n        block,\n        font,\n        italic,\n        size,\n        strikethrough,\n        truncate,\n        underline,\n        weight,\n        wrap,\n        className,\n      })}\n      {...(props as any)}\n    >\n      {children}\n    </Component>\n  )\n}\n\nexport default Text\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

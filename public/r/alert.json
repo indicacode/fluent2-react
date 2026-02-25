@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "title": "Alert",
+  "description": "Fluent2Tailwind Alert component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/alert/alert.tsx",
+      "content": "import { tv, VariantProps } from \"tailwind-variants\"\n\nimport { ComponentProps } from \"react\"\n\nconst alertVariants = tv({\n  base: \"relative w-full rounded-lg border border-border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:top-4 [&>svg]:left-4 [&>svg]:text-foreground [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7\",\n  variants: {\n    variant: {\n      default: \"bg-background text-foreground\",\n      destructive:\n        \"border-destructive/50 text-destructive [&>svg]:text-destructive\",\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n  },\n})\n\nconst alertSlots = tv({\n  slots: {\n    title: \"col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight\",\n    description:\n      \"text-muted-foreground col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed\",\n  },\n})\n\nconst { title, description } = alertSlots()\n\nfunction Alert({\n  className,\n  variant,\n  ...props\n}: ComponentProps<\"div\"> & VariantProps<typeof alertVariants>) {\n  return (\n    <div\n      role=\"alert\"\n      data-slot=\"alert\"\n      className={alertVariants({ variant, className })}\n      {...props}\n    />\n  )\n}\n\nfunction AlertTitle({ className, ...props }: ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"alert-title\"\n      className={title({ className })}\n      {...props}\n    />\n  )\n}\n\nfunction AlertDescription({ className, ...props }: ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"alert-description\"\n      className={description({ className })}\n      {...props}\n    />\n  )\n}\n\nexport { Alert, AlertDescription, AlertTitle }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

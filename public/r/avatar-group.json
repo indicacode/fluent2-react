@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-group",
+  "title": "Avatar Group",
+  "description": "Fluent2Tailwind Avatar Group component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/avatar-group/avatar-group.tsx",
+      "content": "\"use client\"\n\nimport { Avatar, AvatarFallback } from \"@/registry/fluent2tailwind/avatar/avatar\"\nimport * as React from \"react\"\nimport { Children, ComponentProps, isValidElement } from \"react\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\nconst avatarGroup = tv({\n  slots: {\n    root: \"flex items-center\",\n    item:\n      \"relative rounded-full ring-2 ring-background transition-transform duration-200 hover:z-10 hover:scale-[1.03]\",\n    overflow: \"bg-secondary text-muted-foreground\",\n  },\n  variants: {\n    layout: {\n      stack: { root: \"-space-x-2\" },\n      spread: { root: \"space-x-2\" },\n      pie: { root: \"-space-x-3\" },\n    },\n    size: {\n      sm: { item: \"ring-2\" },\n      md: { item: \"ring-2\" },\n      lg: { item: \"ring-2\" },\n    },\n    ring: {\n      light: { item: \"ring-background\" },\n      dark: { item: \"ring-foreground\" },\n    },\n    overlap: {\n      tight: { root: \"-space-x-3\" },\n      normal: { root: \"-space-x-2\" },\n      loose: { root: \"-space-x-1\" },\n    },\n  },\n  defaultVariants: {\n    layout: \"stack\",\n    size: \"md\",\n    ring: \"light\",\n    overlap: \"normal\",\n  },\n})\n\nconst { root, item, overflow } = avatarGroup()\n\ntype AvatarGroupProps = ComponentProps<\"div\"> &\n  VariantProps<typeof avatarGroup> & {\n    max?: number\n    overflowLabel?: (count: number) => React.ReactNode\n    tooltip?: boolean\n  }\n\nfunction AvatarGroup({\n  className,\n  children,\n  layout,\n  size = \"md\",\n  ring = \"light\",\n  overlap = \"normal\",\n  max,\n  overflowLabel,\n  tooltip = false,\n  ...props\n}: AvatarGroupProps) {\n  const items = Children.toArray(children).filter(isValidElement)\n  const displayItems = max ? items.slice(0, max) : items\n  const overflowCount = max ? Math.max(items.length - max, 0) : 0\n  const resolvedSize = size ?? \"md\"\n  const avatarSize = resolvedSize === \"sm\" ? \"sm\" : resolvedSize === \"lg\" ? \"lg\" : \"md\"\n\n  return (\n    <div\n      data-slot=\"avatar-group\"\n      className={root({ layout, size: resolvedSize, ring, overlap, className })}\n      {...props}\n    >\n      {displayItems.map((child, index) => (\n        <div\n          key={`avatar-group-item-${index}`}\n          className={item({ layout, size: resolvedSize, ring })}\n          title={tooltip ? child.props?.name : undefined}\n        >\n          {React.cloneElement(child, {\n            size: child.props?.size ?? avatarSize,\n            variant: child.props?.variant ?? \"group\",\n          })}\n        </div>\n      ))}\n      {overflowCount > 0 && (\n        <div className={item({ layout, size: resolvedSize, ring })}>\n          <Avatar size={avatarSize}>\n            <AvatarFallback className={overflow({})}>\n              {overflowLabel ? overflowLabel(overflowCount) : `+${overflowCount}`}\n            </AvatarFallback>\n          </Avatar>\n        </div>\n      )}\n    </div>\n  )\n}\n\nexport { AvatarGroup }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

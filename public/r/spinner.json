@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "Fluent2Tailwind Spinner component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/spinner/spinner.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\nconst spinner = tv({\n  slots: {\n    root: \"inline-flex items-center gap-2 text-sm text-muted-foreground\",\n    circle:\n      \"border-2 border-border border-t-primary rounded-full animate-spin\",\n    label: \"text-sm\",\n  },\n  variants: {\n    size: {\n      tiny: { circle: \"h-3 w-3 border\" },\n      small: { circle: \"h-4 w-4\" },\n      medium: { circle: \"h-5 w-5\" },\n      large: { circle: \"h-6 w-6\" },\n      \"extra-large\": { circle: \"h-8 w-8\" },\n    },\n  },\n  defaultVariants: {\n    size: \"medium\",\n  },\n})\n\nconst { root, circle, label } = spinner()\n\nexport type SpinnerProps = React.ComponentProps<\"div\"> &\n  VariantProps<typeof spinner> & {\n    label?: React.ReactNode\n  }\n\nfunction Spinner({ className, size, label: labelText, ...props }: SpinnerProps) {\n  return (\n    <div data-slot=\"spinner\" className={root({ className })} {...props}>\n      <span data-slot=\"spinner-circle\" className={circle({ size })} />\n      {labelText && (\n        <span data-slot=\"spinner-label\" className={label()}>\n          {labelText}\n        </span>\n      )}\n    </div>\n  )\n}\n\nexport { Spinner }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

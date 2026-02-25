@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toaster",
+  "title": "Toaster",
+  "description": "Fluent2Tailwind Toaster component.",
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/toaster/toaster.tsx",
+      "content": "\"use client\"\n\nimport { useMediaQuery } from \"@/utils/use-media-query\"\n\nimport { useToast } from \"@/registry/fluent2tailwind/use-toast/use-toast\"\n\nimport {\n  Toast,\n  ToastClose,\n  ToastDescription,\n  ToastIcon,\n  ToastProvider,\n  ToastTitle,\n  ToastViewport,\n} from \"../toast/toast\"\n\nexport function Toaster() {\n  const { toasts } = useToast()\n\n  const isMobile = useMediaQuery([\"(max-width: 640px)\"], {\n    ssr: true,\n    fallback: [false],\n  })[0]\n\n  return (\n    <ToastProvider>\n      {toasts.map(\n        ({\n          multiline = false,\n          description,\n          variant,\n          action,\n          title,\n          id,\n          ...props\n        }) => {\n          console.log(!multiline && !isMobile && \"sometyhing\")\n          return (\n            <Toast variant={variant} key={id} {...props}>\n              <div className=\"flex w-full items-center gap-2\">\n                <ToastIcon\n                  variant={variant as \"info\" | \"warning\" | \"error\" | \"success\"}\n                />\n                {title && <ToastTitle>{title}</ToastTitle>}\n                {description && (\n                  <ToastDescription>{description}</ToastDescription>\n                )}\n                {!multiline && !isMobile && action}\n                <ToastClose />\n              </div>\n              {(multiline || isMobile) && (\n                <div className=\"flex w-full gap-2\">\n                  <div className=\"flex w-full\" />\n                  {action}\n                </div>\n              )}\n            </Toast>\n          )\n        }\n      )}\n      <ToastViewport />\n    </ToastProvider>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

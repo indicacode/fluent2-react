@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag",
+  "title": "Tag",
+  "description": "Fluent2Tailwind Tag component.",
+  "dependencies": [
+    "lucide-react",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/tag/tag.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { X } from \"lucide-react\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\nconst tag = tv({\n  slots: {\n    root:\n      \"inline-flex items-center gap-1 border px-2 py-0.5 text-xs font-medium\",\n    secondary: \"text-[0.7rem] text-muted-foreground\",\n    dismiss: \"ml-1 text-muted-foreground hover:text-foreground\",\n  },\n  variants: {\n    appearance: {\n      filled: { root: \"bg-muted border-border text-foreground\" },\n      outline: { root: \"bg-transparent border-border text-muted-foreground\" },\n      brand: { root: \"bg-primary border-primary text-primary-foreground\" },\n    },\n    size: {\n      \"extra-small\": { root: \"text-[0.65rem] px-1.5\" },\n      small: { root: \"text-xs px-2\" },\n      medium: { root: \"text-sm px-2.5 py-1\" },\n    },\n    shape: {\n      rounded: { root: \"rounded-md\" },\n      circular: { root: \"rounded-full\" },\n    },\n    selected: {\n      true: { root: \"ring-1 ring-primary\" },\n    },\n    disabled: {\n      true: { root: \"opacity-60 cursor-not-allowed\" },\n    },\n  },\n  defaultVariants: {\n    appearance: \"filled\",\n    size: \"medium\",\n    shape: \"rounded\",\n  },\n})\n\nconst { root, secondary, dismiss } = tag()\n\nexport type TagProps = React.ComponentProps<\"span\"> &\n  VariantProps<typeof tag> & {\n    icon?: React.ReactNode\n    media?: React.ReactNode\n    secondaryText?: React.ReactNode\n    dismissible?: boolean\n    onDismiss?: () => void\n  }\n\nfunction Tag({\n  className,\n  appearance,\n  size,\n  shape,\n  selected,\n  disabled,\n  icon,\n  media,\n  secondaryText,\n  dismissible,\n  onDismiss,\n  children,\n  ...props\n}: TagProps) {\n  return (\n    <span\n      data-slot=\"tag\"\n      className={root({ appearance, size, shape, selected, disabled, className })}\n      {...props}\n    >\n      {media}\n      {icon}\n      <span className=\"inline-flex flex-col\">\n        <span>{children}</span>\n        {secondaryText && (\n          <span className={secondary()}>{secondaryText}</span>\n        )}\n      </span>\n      {dismissible && !disabled && (\n        <button\n          type=\"button\"\n          className={dismiss()}\n          onClick={onDismiss}\n          aria-label=\"Dismiss tag\"\n        >\n          <X className=\"h-3 w-3\" />\n        </button>\n      )}\n    </span>\n  )\n}\n\nexport type TagGroupProps = React.ComponentProps<\"div\"> & {\n  onDismiss?: (value: string) => void\n}\n\nfunction TagGroup({ className, ...props }: TagGroupProps) {\n  return (\n    <div data-slot=\"tag-group\" className={`flex flex-wrap gap-2 ${className ?? \"\"}`} {...props} />\n  )\n}\n\nexport { Tag, TagGroup }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

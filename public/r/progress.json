@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "title": "Progress",
+  "description": "Fluent2Tailwind Progress component.",
+  "dependencies": [
+    "@radix-ui/react-progress",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/progress/progress.tsx",
+      "content": "\"use client\"\n\nimport * as ProgressPrimitive from \"@radix-ui/react-progress\"\nimport * as React from \"react\"\n\nimport { tv } from \"tailwind-variants\"\n\nconst progressSlots = tv({\n  slots: {\n    root: \"bg-primary/20 relative h-2 w-full overflow-hidden rounded-full\",\n    indicator: \"bg-primary h-full w-full flex-1 transition-all\",\n  },\n  variants: {\n    indeterminate: {\n      true: {\n        indicator:\n          \"animate-pulse w-2/5 translate-x-0\",\n      },\n    },\n  },\n})\n\nconst { root, indicator } = progressSlots()\n\nfunction Progress({\n  className,\n  value,\n  indicatorClassName,\n  indicatorStyle,\n  ...props\n}: React.ComponentProps<typeof ProgressPrimitive.Root> & {\n  indicatorClassName?: string\n  indicatorStyle?: React.CSSProperties\n}) {\n  const indeterminate = value === undefined || value === null\n  return (\n    <ProgressPrimitive.Root\n      data-slot=\"progress\"\n      className={root({ className })}\n      {...props}\n    >\n      <ProgressPrimitive.Indicator\n        data-slot=\"progress-indicator\"\n        className={indicator({ indeterminate, className: indicatorClassName })}\n        style={\n          indeterminate\n            ? { ...indicatorStyle }\n            : {\n                transform: `translateX(-${100 - (value || 0)}%)`,\n                ...indicatorStyle,\n              }\n        }\n      />\n    </ProgressPrimitive.Root>\n  )\n}\n\nexport { Progress }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

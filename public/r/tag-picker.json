@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-picker",
+  "title": "Tag Picker",
+  "description": "Fluent2Tailwind Tag Picker component.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/tag-picker/tag-picker.tsx",
+      "content": "\"use client\"\n\nimport Combobox from \"@/registry/fluent2tailwind/combobox/combobox\"\nimport { Option } from \"@/registry/fluent2tailwind/combobox/combobox.types\"\nimport * as React from \"react\"\n\nexport type TagPickerProps = React.ComponentProps<typeof Combobox> & {\n  noPopover?: boolean\n}\n\nfunction TagPicker({\n  multiselect = true,\n  tags = true,\n  noPopover = false,\n  open,\n  defaultOpen,\n  onOpenChange,\n  ...props\n}: TagPickerProps) {\n  const [internalOpen, setInternalOpen] = React.useState(defaultOpen ?? false)\n  const resolvedOpen = noPopover ? true : open ?? internalOpen\n\n  return (\n    <Combobox\n      multiselect={multiselect}\n      tags={tags}\n      open={resolvedOpen}\n      onOpenChange={(nextOpen?: boolean) => {\n        if (!noPopover) {\n          setInternalOpen(nextOpen ?? !resolvedOpen)\n        }\n        onOpenChange?.()\n      }}\n      {...props}\n    />\n  )\n}\n\nexport type UseTagPickerFilterOptions = {\n  query: string\n  options: Option[]\n  noResultsMessage?: string\n  filter?: (query: string, option: Option) => boolean\n}\n\nexport function useTagPickerFilter({\n  query,\n  options,\n  noResultsMessage = \"No matches\",\n  filter,\n}: UseTagPickerFilterOptions) {\n  const filtered = React.useMemo(() => {\n    const normalized = query.toLowerCase()\n    return options.filter((option) =>\n      filter\n        ? filter(normalized, option)\n        : option.label.toLowerCase().includes(normalized)\n    )\n  }, [query, options, filter])\n\n  return {\n    options: filtered,\n    emptyMessage: filtered.length ? undefined : noResultsMessage,\n  }\n}\n\nexport { TagPicker }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

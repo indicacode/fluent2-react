@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Fluent2Tailwind Skeleton component.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/skeleton/skeleton.tsx",
+      "content": "import { tv } from \"tailwind-variants\"\n\ntype SkeletonProps = React.ComponentProps<\"div\"> & {\n  animation?: \"wave\" | \"pulse\"\n  appearance?: \"opaque\" | \"translucent\"\n  shape?: \"circle\" | \"rectangle\" | \"square\"\n  width?: number | string\n  size?:\n    | 8\n    | 12\n    | 16\n    | 20\n    | 24\n    | 28\n    | 32\n    | 36\n    | 40\n    | 48\n    | 56\n    | 64\n    | 72\n    | 96\n    | 120\n    | 128\n}\n\nconst skeletonSlots = tv({\n  slots: {\n    root: \"bg-accent bg-secondary\",\n  },\n  variants: {\n    animation: { wave: \"animate-wave\", pulse: \"animate-pulse\" },\n    appearance: { opaque: \"opacity-100\", translucent: \"opacity-10\" },\n    shape: {\n      circle: \"rounded-full\",\n      rectangle: \"rounded-md\",\n      square: \"rounded-none\",\n    },\n    size: {\n      8: \"h-[8px]\",\n      12: \"h-[12px]\",\n      16: \"h-[16px]\",\n      20: \"h-[20px]\",\n      24: \"h-[24px]\",\n      28: \"h-[28px]\",\n      32: \"h-[32px]\",\n      36: \"h-[36px]\",\n      40: \"h-[40px]\",\n      48: \"h-[48px]\",\n      56: \"h-[56px]\",\n      64: \"h-[64px]\",\n      72: \"h-[72px]\",\n      96: \"h-[96px]\",\n      120: \"h-[120px]\",\n      128: \"h-[128px]\",\n    },\n  },\n  defaultVariants: {\n    animation: \"wave\",\n    appearance: \"opaque\",\n    shape: \"rectangle\",\n  },\n})\n\nconst { root } = skeletonSlots()\n\nfunction Skeleton({\n  animation,\n  appearance,\n  shape,\n  size,\n  width,\n  className,\n  ...props\n}: SkeletonProps) {\n  const style =\n    width !== undefined\n      ? { width: typeof width === \"number\" ? `${width}px` : width }\n      : undefined\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={root({ animation, appearance, shape, size, className })}\n      style={style}\n      {...props}\n    />\n  )\n}\n\nexport default Skeleton\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "Fluent2Tailwind Badge component.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/badge/badge.tsx",
+      "content": "import { Slot } from \"@radix-ui/react-slot\"\nimport * as React from \"react\"\nimport { ReactNode } from \"react\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\ntype badgeProps = React.ComponentProps<\"span\"> &\n  VariantProps<typeof badgeSlots> & {\n    asChild?: boolean\n    as?: \"div\"\n    icon?: ReactNode\n    iconPosition?: \"before\" | \"after\"\n  }\n\nconst badgeSlots = tv({\n  slots: {\n    root:\n      \"inline-flex items-center gap-1 font-semibold transition-colors focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus:outline-hidden\",\n  },\n  variants: {\n    appearance: {\n      filled: { root: \"shadow-sm\" },\n      ghost: { root: \"!bg-transparent !text-foreground\" },\n      outline: { root: \"border !border-border !bg-transparent !text-foreground\" },\n      tint: { root: \"border !border-border !bg-muted !text-foreground\" },\n    },\n    size: {\n      tiny: { root: \"h-2 min-w-2 px-[0.2rem] py-[1px] text-[0.30rem]\" },\n      \"extra-small\": { root: \"h-3 min-w-3 px-[0.3rem] text-[0.45rem]\" },\n      small: { root: \"h-4 min-w-4 px-[0.4rem] py-[0.025] text-[0.60rem]\" },\n      medium: { root: \"h-5 min-w-5 px-[0.5rem] py-[0.125] text-[0.75rem]\" },\n      large: { root: \"h-6 min-w-6 px-[0.6rem] py-[0.225] text-[0.9rem]\" },\n      \"extra-large\": {\n        root: \"h-7 min-w-7 px-[0.7rem] py-[0.325] text-[1.05rem]\",\n      },\n    },\n    shape: {\n      square: { root: \"rounded-none\" },\n      rounded: { root: \"rounded-md\" },\n      circular: { root: \"rounded-full\" },\n    },\n    color: {\n      brand: {\n        root: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n      },\n      danger: {\n        root:\n          \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n      },\n      important: {\n        root: \"bg-warning text-warning-foreground hover:bg-warning/90\",\n      },\n      informative: {\n        root: \"bg-info text-info-foreground hover:bg-info/90\",\n      },\n      severe: {\n        root: \"bg-error text-error-foreground hover:bg-error/90\",\n      },\n      subtle: {\n        root: \"bg-secondary text-foreground hover:bg-secondary/90\",\n      },\n      success: {\n        root: \"bg-success text-success-foreground hover:bg-success/90\",\n      },\n      warning: {\n        root: \"bg-warning text-warning-foreground hover:bg-warning/90\",\n      },\n    },\n  },\n  defaultVariants: {\n    color: \"brand\",\n    size: \"medium\",\n    shape: \"circular\",\n  },\n})\n\nconst { root: badgeVariants } = badgeSlots()\n\nfunction Badge({\n  className,\n  appearance,\n  asChild = false,\n  size,\n  shape,\n  children,\n  color,\n  icon,\n  iconPosition = \"before\",\n  as = \"div\",\n  ...props\n}: badgeProps) {\n  const Comp = asChild ? Slot : \"span\"\n\n  return (\n    <Comp\n      data-slot=\"badge\"\n      className={badgeVariants({ appearance, size, shape, color, className })}\n      {...props}\n    >\n      {iconPosition === \"before\" ? icon : \"\"}\n      {children}\n      {iconPosition === \"after\" ? icon : \"\"}\n    </Comp>\n  )\n}\n\nexport { Badge, badgeVariants }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

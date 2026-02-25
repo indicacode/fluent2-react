@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rating-display",
+  "title": "Rating Display",
+  "description": "Fluent2Tailwind Rating Display component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/rating-display/rating-display.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Rating } from \"@/registry/fluent2tailwind/rating/rating\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\nconst ratingDisplay = tv({\n  slots: {\n    root: \"inline-flex items-center gap-2 text-sm text-muted-foreground\",\n    text: \"text-sm text-muted-foreground\",\n  },\n  variants: {\n    compact: {\n      true: { root: \"gap-1\", text: \"text-xs\" },\n    },\n  },\n})\n\nconst { root, text } = ratingDisplay()\n\nexport type RatingDisplayProps = VariantProps<typeof ratingDisplay> & {\n  value: number\n  max?: number\n  count?: number\n  size?: \"small\" | \"medium\" | \"large\" | \"extra-large\"\n  color?: \"neutral\" | \"brand\" | \"marigold\"\n  iconFilled?: React.ReactNode\n  iconOutline?: React.ReactNode\n}\n\nfunction RatingDisplay({\n  value,\n  max = 5,\n  count,\n  size,\n  color,\n  compact,\n  iconFilled,\n  iconOutline,\n}: RatingDisplayProps) {\n  return (\n    <div data-slot=\"rating-display\" className={root({ compact })}>\n      <Rating\n        value={value}\n        max={max}\n        readOnly\n        size={size}\n        color={color}\n        iconFilled={iconFilled}\n        iconOutline={iconOutline}\n      />\n      <span className={text()}>\n        {value.toFixed(1)} / {max}\n        {typeof count === \"number\" ? ` (${count})` : \"\"}\n      </span>\n    </div>\n  )\n}\n\nexport { RatingDisplay }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

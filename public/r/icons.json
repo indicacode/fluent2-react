@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icons",
+  "title": "Icons",
+  "description": "Fluent2Tailwind Icons component.",
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/icons/icons.tsx",
+      "content": "export { Icon } from \"@/registry/fluent2tailwind/icon/icon\"\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "customCommandEmpty",
+  "title": "Customcommandempty",
+  "description": "Fluent2Tailwind Customcommandempty component.",
+  "dependencies": [
+    "cmdk",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/customCommandEmpty/customCommandEmpty.tsx",
+      "content": "import { useCommandState } from \"cmdk\"\n\nimport { tv } from \"tailwind-variants\"\n\nconst commandEmptySlots = tv({\n  slots: {\n    root: \"py-6 text-center text-sm\",\n  },\n})\n\nconst { root } = commandEmptySlots()\n\n/**\n * The `CommandEmpty` of shadcn/ui will cause the cmdk empty not rendering correctly.\n * So we create one and copy the `Empty` implementation from `cmdk`.\n *\n * @reference: https://github.com/hsuanyi-chou/shadcn-ui-expansions/issues/34#issuecomment-1949561607\n **/\nexport function CommandEmpty({ className, ...props }) {\n  const render = useCommandState((state) => state.filtered.count === 0)\n\n  if (!render) return null\n\n  return (\n    <div\n      className={root({ className })}\n      cmdk-empty=\"\"\n      role=\"presentation\"\n      {...props}\n    />\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

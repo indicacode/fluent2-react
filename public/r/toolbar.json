@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toolbar",
+  "title": "Toolbar",
+  "description": "Fluent2Tailwind Toolbar component.",
+  "dependencies": [
+    "@radix-ui/react-toolbar",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/toolbar/toolbar.tsx",
+      "content": "\"use client\"\n\nimport * as ToolbarPrimitive from \"@radix-ui/react-toolbar\"\nimport * as React from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nconst toolbarVariants = tv({\n  variants: {\n    size: {\n      small: \"px-2 py-1 text-sm\",\n      medium: \"px-3 py-2 text-base\",\n      large: \"px-5 py-3 text-lg\",\n    },\n    vertical: {\n      true: \"flex flex-col\",\n      false: \"flex flex-row\",\n    },\n  },\n  defaultVariants: { size: \"medium\", vertical: false },\n})\n\ntype ToolbarProps = React.ComponentProps<typeof ToolbarPrimitive.Root> & {\n  size?: \"small\" | \"medium\" | \"large\"\n  vertical?: boolean\n}\n\nfunction Toolbar({ size, vertical, className, ...props }: ToolbarProps) {\n  return (\n    <ToolbarPrimitive.Root\n      data-slot=\"toolbar\"\n      className={`inline-flex items-center gap-2 rounded-md border border-border bg-background ${toolbarVariants({ size, vertical })} ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\ntype ToolbarButtonProps = React.ComponentProps<typeof ToolbarPrimitive.Button>\n\nfunction ToolbarButton({ className, ...props }: ToolbarButtonProps) {\n  return (\n    <ToolbarPrimitive.Button\n      data-slot=\"toolbar-button\"\n      className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm hover:bg-muted ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\ntype ToolbarDividerProps = React.ComponentProps<typeof ToolbarPrimitive.Separator>\n\nfunction ToolbarDivider({ className, ...props }: ToolbarDividerProps) {\n  return (\n    <ToolbarPrimitive.Separator\n      data-slot=\"toolbar-divider\"\n      className={`mx-1 h-5 w-px bg-secondary ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\ntype ToolbarGroupProps = React.ComponentProps<typeof ToolbarPrimitive.ToggleGroup>\n\nfunction ToolbarGroup({ className, ...props }: ToolbarGroupProps) {\n  return (\n    <ToolbarPrimitive.ToggleGroup\n      data-slot=\"toolbar-group\"\n      className={`inline-flex items-center gap-1 ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\ntype ToolbarRadioButtonProps = React.ComponentProps<typeof ToolbarPrimitive.ToggleItem>\n\nfunction ToolbarRadioButton({ className, ...props }: ToolbarRadioButtonProps) {\n  return (\n    <ToolbarPrimitive.ToggleItem\n      data-slot=\"toolbar-radio-button\"\n      className={`inline-flex items-center rounded-md px-2 py-1 text-sm hover:bg-muted data-[state=on]:bg-secondary ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\ntype ToolbarRadioGroupProps = React.ComponentProps<typeof ToolbarPrimitive.ToggleGroup>\n\nfunction ToolbarRadioGroup({ className, ...props }: ToolbarRadioGroupProps) {\n  return (\n    <ToolbarPrimitive.ToggleGroup\n      data-slot=\"toolbar-radio-group\"\n      className={`inline-flex items-center gap-1 ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\ntype ToolbarToogleButtonProps = React.ComponentProps<typeof ToolbarPrimitive.ToggleItem>\n\nfunction ToolbarToogleButton({ className, ...props }: ToolbarToogleButtonProps) {\n  return (\n    <ToolbarPrimitive.ToggleItem\n      data-slot=\"toolbar-toggle-button\"\n      className={`inline-flex items-center rounded-md px-2 py-1 text-sm hover:bg-muted data-[state=on]:bg-secondary ${className ?? \"\"}`}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Toolbar,\n  ToolbarButton,\n  ToolbarDivider,\n  ToolbarGroup,\n  ToolbarRadioButton,\n  ToolbarRadioGroup,\n  ToolbarToogleButton,\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

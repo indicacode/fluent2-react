@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "useDataTable",
+  "title": "Usedatatable",
+  "description": "Fluent2Tailwind Usedatatable component.",
+  "dependencies": [
+    "@tanstack/react-table",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/useDataTable/useDataTable.tsx",
+      "content": "import {\n  ColumnDef,\n  ColumnFiltersState,\n  getCoreRowModel,\n  getFilteredRowModel,\n  getPaginationRowModel,\n  getSortedRowModel,\n  RowSelectionState,\n  SortingState,\n  useReactTable,\n  VisibilityState,\n} from \"@tanstack/react-table\"\nimport { useState } from \"react\"\n\ninterface UseDataTableProps<TData, TValue> {\n  data: TData[]\n  columns: ColumnDef<TData, TValue>[]\n  enableSorting?: boolean\n  enableFiltering?: boolean\n  enablePagination?: boolean\n  enableColumnVisibility?: boolean\n  enableRowSelection?: boolean\n  initialState?: {\n    sorting?: SortingState\n    filtering?: ColumnFiltersState\n    columnVisibility?: VisibilityState\n    rowSelection?: RowSelectionState\n    pagination?: {\n      pageIndex: number\n      pageSize: number\n    }\n  }\n}\n\nexport function useDataTable<TData, TValue>({\n  data,\n  columns,\n  enableSorting = true,\n  enableFiltering = true,\n  enablePagination = true,\n  enableColumnVisibility = true,\n  enableRowSelection = false,\n  initialState = {},\n}: UseDataTableProps<TData, TValue>) {\n  // States with proper typing\n  const [sorting, setSorting] = useState<SortingState>(\n    initialState.sorting || []\n  )\n  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(\n    initialState.filtering || []\n  )\n  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(\n    initialState.columnVisibility || {}\n  )\n  const [rowSelection, setRowSelection] = useState<RowSelectionState>(\n    initialState.rowSelection || {}\n  )\n  const [{ pageIndex, pageSize }, setPagination] = useState({\n    pageIndex: initialState.pagination?.pageIndex || 0,\n    pageSize: initialState.pagination?.pageSize || 10,\n  })\n\n  const table = useReactTable({\n    data,\n    columns,\n    state: {\n      sorting,\n      columnFilters,\n      columnVisibility,\n      rowSelection,\n      pagination: enablePagination ? { pageIndex, pageSize } : undefined,\n    },\n    onSortingChange: enableSorting ? setSorting : undefined,\n    onColumnFiltersChange: enableFiltering ? setColumnFilters : undefined,\n    onColumnVisibilityChange: enableColumnVisibility\n      ? setColumnVisibility\n      : undefined,\n    onRowSelectionChange: enableRowSelection ? setRowSelection : undefined,\n    onPaginationChange: enablePagination ? setPagination : undefined,\n    getCoreRowModel: getCoreRowModel(),\n    getPaginationRowModel: enablePagination\n      ? getPaginationRowModel()\n      : undefined,\n    getSortedRowModel: enableSorting ? getSortedRowModel() : undefined,\n    getFilteredRowModel: enableFiltering ? getFilteredRowModel() : undefined,\n    // Enable manual control for server-side operations if needed\n    manualPagination: false,\n    manualSorting: false,\n    manualFiltering: false,\n  })\n\n  return table\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

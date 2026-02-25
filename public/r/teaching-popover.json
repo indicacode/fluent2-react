@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "teaching-popover",
+  "title": "Teaching Popover",
+  "description": "Fluent2Tailwind Teaching Popover component.",
+  "dependencies": [
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/teaching-popover/teaching-popover.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/registry/fluent2tailwind/popover/popover\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\nconst teachingPopover = tv({\n  slots: {\n    surface:\n      \"max-w-[320px] rounded-md border border-border bg-background p-4 text-sm text-foreground shadow-lg\",\n    title: \"text-base font-semibold\",\n    body: \"text-sm text-muted-foreground\",\n    footer: \"mt-3 flex items-center justify-between gap-2\",\n  },\n  variants: {\n    appearance: {\n      light: { surface: \"bg-background\" },\n      dark: { surface: \"bg-foreground text-background border-border\" },\n    },\n  },\n  defaultVariants: {\n    appearance: \"light\",\n  },\n})\n\nconst { surface, title, body, footer } = teachingPopover()\n\nexport type TeachingPopoverProps = React.ComponentProps<typeof Popover>\n\nfunction TeachingPopover({ children, ...props }: TeachingPopoverProps) {\n  return <Popover {...props}>{children}</Popover>\n}\n\nfunction TeachingPopoverTrigger({\n  ...props\n}: React.ComponentProps<typeof PopoverTrigger>) {\n  return <PopoverTrigger data-slot=\"teaching-popover-trigger\" {...props} />\n}\n\nexport type TeachingPopoverSurfaceProps = React.ComponentProps<typeof PopoverContent> &\n  VariantProps<typeof teachingPopover>\n\nfunction TeachingPopoverSurface({\n  className,\n  appearance,\n  ...props\n}: TeachingPopoverSurfaceProps) {\n  return (\n    <PopoverContent\n      data-slot=\"teaching-popover-surface\"\n      className={surface({ appearance, className })}\n      {...props}\n    />\n  )\n}\n\nfunction TeachingPopoverTitle({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div data-slot=\"teaching-popover-title\" className={title({ className })} {...props} />\n  )\n}\n\nfunction TeachingPopoverBody({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div data-slot=\"teaching-popover-body\" className={body({ className })} {...props} />\n  )\n}\n\nfunction TeachingPopoverFooter({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div data-slot=\"teaching-popover-footer\" className={footer({ className })} {...props} />\n  )\n}\n\nexport {\n  TeachingPopover,\n  TeachingPopoverBody,\n  TeachingPopoverFooter,\n  TeachingPopoverSurface,\n  TeachingPopoverTitle,\n  TeachingPopoverTrigger,\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

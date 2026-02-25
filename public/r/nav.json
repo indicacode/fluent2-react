@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "nav",
+  "title": "Nav",
+  "description": "Fluent2Tailwind Nav component.",
+  "dependencies": [
+    "@phosphor-icons/react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/nav/nav.tsx",
+      "content": "import { CaretDownIcon, CaretRightIcon, ListIcon } from \"@phosphor-icons/react\"\nimport { usePathname, useSearchParams } from \"next/navigation\"\nimport { useState } from \"react\"\n\nexport function NavHeader({ href, logo: Logo, children }) {\n  return (\n    <a\n      href={href}\n      className=\"mb-4 flex items-center gap-3 rounded-md transition-colors hover:bg-muted\"\n    >\n      <Logo\n        size={32}\n        weight=\"regular\"\n        className=\"text-foreground\"\n      />\n      <span className=\"font-semibold text-foreground\">{children}</span>\n    </a>\n  )\n}\n\nexport function NavCategory({ icon: Icon, title, children }) {\n  const [isExpanded, setIsExpanded] = useState(false)\n\n  return (\n    <div>\n      <button\n        onClick={() => setIsExpanded(!isExpanded)}\n        className=\"flex w-full items-center gap-3 rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted\"\n      >\n        <Icon size={20} weight=\"regular\" />\n        <span className=\"flex-1 text-left text-sm font-medium\">{title}</span>\n        {isExpanded ? (\n          <CaretDownIcon size={16} />\n        ) : (\n          <CaretRightIcon size={16} />\n        )}\n      </button>\n      {isExpanded && <div className=\"mt-2 flex flex-col gap-1\">{children}</div>}\n    </div>\n  )\n}\n\nexport function NavSubItem({ children, href, onClick }) {\n  const pathname = usePathname()\n  const searchParams = useSearchParams()\n  const isActive = searchParams.get(\"section\") === children\n\n  return (\n    <a\n      href={href}\n      onClick={onClick}\n      className={`block rounded-md px-9 py-2 text-sm transition-colors ${\n        isActive\n          ? \"bg-primary/10 text-primary\"\n          : \"text-muted-foreground hover:bg-muted\"\n      }`}\n    >\n      {children}\n    </a>\n  )\n}\n\nexport function NavSection({ title, children }) {\n  return (\n    <div className=\"pt-4\">\n      {title && (\n        <h2 className=\"mb-2 px-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase\">\n          {title}\n        </h2>\n      )}\n      <div className=\"flex flex-col gap-1\">{children}</div>\n    </div>\n  )\n}\n\nexport function Nav({ isOpen, onToggle, children }) {\n  return (\n    <div\n      className={`fixed top-0 left-0 z-40 flex h-screen flex-col overflow-hidden border-r border-border bg-background p-4 transition-all duration-300 ${isOpen ? \"w-64\" : \"w-0\"} `}\n    >\n      <div className=\"\">\n        <button\n          onClick={onToggle}\n          className=\"rounded-md transition-colors hover:bg-muted\"\n          title=\"Close Navigation\"\n        >\n          <ListIcon\n            size={24}\n            weight=\"regular\"\n            className=\"text-foreground\"\n          />\n        </button>\n      </div>\n\n      {/* Body */}\n      <div className=\"flex-1 overflow-y-auto\">{children}</div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

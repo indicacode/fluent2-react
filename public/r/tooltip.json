@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "Fluent2Tailwind Tooltip component.",
+  "dependencies": [
+    "@radix-ui/react-tooltip",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/tooltip/tooltip.tsx",
+      "content": "\"use client\"\n\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\"\nimport { ComponentProps, ReactNode } from \"react\"\nimport { tv } from \"tailwind-variants\"\n\ntype TooltipProps = ComponentProps<typeof TooltipPrimitive.Root> &\n  React.HtmlHTMLAttributes<\"div\"> & {\n    content: ReactNode\n    appearance?: \"normal\" | \"inverted\"\n    hideDelay?: number\n    onVisibleChange?: (visible: boolean) => void\n    positioning?: ComponentProps<typeof TooltipPrimitive.Content>[\"side\"]\n    relationship: \"label\" | \"description\" | \"inaccessible\"\n    showDelay?: number\n    visible?: boolean\n    withArrow?: boolean\n    shouldRenderTooltip?: boolean\n    arrowClassName?: string\n    arrowRef?: React.Ref<SVGSVGElement>\n    data?: unknown\n    event?: \"hover\" | \"click\" | \"focus\"\n    triggerRef?: React.Ref<Element>\n  }\n\nconst tooltipSlots = tv({\n  slots: {\n    tooltipContent:\n      \"z-50 overflow-hidden rounded-md px-3 py-1.5 text-xs shadow-md\",\n    tooltipArrow: \"shadow-md\",\n  },\n  variants: {\n    appearance: {\n      normal: {\n        tooltipContent: \"bg-popover text-popover-foreground\",\n        tooltipArrow: \"fill-popover\",\n      },\n      inverted: {\n        tooltipContent: \"bg-foreground text-background\",\n        tooltipArrow: \"fill-foreground\",\n      },\n    },\n  },\n  defaultVariants: { appearance: \"normal\" },\n})\n\nconst { tooltipContent, tooltipArrow } = tooltipSlots({})\n\nfunction Tooltip({\n  content,\n  appearance = \"normal\",\n  positioning = \"top\",\n  relationship = \"label\",\n  showDelay = 250,\n  hideDelay = 250,\n  withArrow = false,\n  shouldRenderTooltip = true,\n  arrowClassName,\n  arrowRef,\n  data,\n  event,\n  triggerRef,\n  onVisibleChange,\n  className,\n  children,\n  ...props\n}: TooltipProps) {\n  return (\n    <TooltipPrimitive.Provider\n      delayDuration={showDelay}\n      skipDelayDuration={hideDelay}\n    >\n      <TooltipPrimitive.Root\n        onOpenChange={onVisibleChange}\n        data-event={event}\n        data-tooltip={data ? \"true\" : undefined}\n        {...props}\n      >\n        <TooltipPrimitive.Trigger\n          aria-label={\n            relationship === \"label\" ? content?.toString() : undefined\n          }\n          aria-description={\n            relationship === \"description\" ? content?.toString() : undefined\n          }\n          asChild\n          ref={triggerRef as React.RefObject<HTMLButtonElement>}\n        >\n          {children}\n        </TooltipPrimitive.Trigger>\n\n        <TooltipPrimitive.Portal>\n          {shouldRenderTooltip && (\n            <TooltipPrimitive.Content\n              side={positioning}\n              sideOffset={4}\n              className={tooltipContent({ appearance, className })}\n            >\n              {content}\n              {withArrow && (\n                <TooltipPrimitive.Arrow\n                  ref={arrowRef}\n                  className={tooltipArrow({\n                    appearance,\n                    className: arrowClassName,\n                  })}\n                />\n              )}\n            </TooltipPrimitive.Content>\n          )}\n        </TooltipPrimitive.Portal>\n      </TooltipPrimitive.Root>\n    </TooltipPrimitive.Provider>\n  )\n}\n\nexport default Tooltip\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

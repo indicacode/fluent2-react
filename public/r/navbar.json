@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navbar",
+  "title": "Navbar",
+  "description": "Fluent2Tailwind Navbar component.",
+  "dependencies": [
+    "next"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/navbar/navbar.tsx",
+      "content": "\"use client\"\n\nimport Link from \"next/link\"\nimport { usePathname } from \"next/navigation\"\n\nexport default function Navbar() {\n  const pathname = usePathname()\n\n  return (\n    <nav className=\"flex h-[10vh] w-full shrink-0 items-center justify-between border-b-[1px] border-border bg-muted/10 px-4 md:px-6 dark:bg-background\">\n      <Link className=\"flex items-center gap-2 text-foreground\" href=\"/\">\n        <MountainIcon className=\"h-6 w-6\" />\n        <span className=\"text-2xl font-bold\">Fluent 2</span>\n      </Link>\n    </nav>\n  )\n}\n\nfunction MountainIcon(props: any) {\n  return (\n    <svg\n      {...props}\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width=\"24\"\n      height=\"24\"\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n    >\n      <path d=\"m8 3 4 8 5-5 5 15H2L8 3z\" />\n    </svg>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

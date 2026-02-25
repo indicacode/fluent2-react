@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "persona",
+  "title": "Persona",
+  "description": "Fluent2Tailwind Persona component.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/persona/persona.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from \"@/registry/fluent2tailwind/avatar/avatar\"\nimport { StatusBadge } from \"@/registry/fluent2tailwind/status-badge/status-badge\"\nimport { tv } from \"tailwind-variants\"\n\ntype PersonaProps = Omit<typeof Avatar, \"children\"> & {\n  avatar: {\n    src: string\n    name: string\n    status?: \"online\" | \"offline\" | \"away\"\n    size: \"sm\" | \"md\" | \"lg\"\n  }\n  presenceOnly?: boolean\n  textPosition?: \"before\" | \"after\" | \"below\"\n  quaternaryText?: string\n  secondaryText?: string\n  tertiaryText?: string\n  name: string\n  textAlignment?: \"start\" | \"center\" | \"end\"\n}\n\nconst personaSlots = tv({\n  slots: {\n    root: \"flex items-center gap-2\",\n    presenceDot: \"relative aspect-square rounded-full bg-muted\",\n    statusBadge: \"right-0 bottom-0\",\n    textStack: \"flex flex-col\",\n  },\n  variants: {\n    textPosition: {\n      before: { root: \"flex-row-reverse\" },\n      after: { root: \"flex-row\" },\n      below: { root: \"flex-col\" },\n    },\n    textAlignment: {\n      start: { textStack: \"text-left\" },\n      center: { textStack: \"text-center\" },\n      end: { textStack: \"text-right\" },\n    },\n    presenceSize: {\n      sm: { presenceDot: \"h-2 w-2\" },\n      md: { presenceDot: \"h-3 w-3\" },\n      lg: { presenceDot: \"bottom-0.5 right-0.5 h-4 w-4\" },\n    },\n  },\n  defaultVariants: {\n    textPosition: \"after\",\n    presenceSize: \"sm\",\n    textAlignment: \"start\",\n  },\n})\n\nconst { root, presenceDot, statusBadge, textStack } = personaSlots()\n\nexport default function Persona({\n  avatar,\n  name,\n  secondaryText,\n  tertiaryText,\n  quaternaryText,\n  presenceOnly = false,\n  textPosition = \"after\",\n  textAlignment = \"start\",\n  ...props\n}: PersonaProps) {\n  const presenceSize = avatar?.size || \"sm\"\n  return (\n    <div className={root({ textPosition })}>\n      {presenceOnly ? (\n        <span className={presenceDot({ presenceSize })}>\n          <StatusBadge\n            className={statusBadge()}\n            size={avatar?.size}\n            status={avatar?.status}\n          />\n        </span>\n      ) : (\n        <Avatar status={avatar?.status} size={avatar?.size} {...props}>\n          <AvatarImage src={avatar?.src} />\n          <AvatarFallback>{avatar?.name}</AvatarFallback>\n        </Avatar>\n      )}\n      <div className={textStack({ textAlignment })}>\n        {name && <h2>{name}</h2>}\n        {secondaryText && <h2>{secondaryText}</h2>}\n        {tertiaryText && <h2>{tertiaryText}</h2>}\n        {quaternaryText && <h2>{quaternaryText}</h2>}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

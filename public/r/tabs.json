@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Fluent2Tailwind Tabs component.",
+  "dependencies": [
+    "@radix-ui/react-tabs",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/tabs/tabs.tsx",
+      "content": "import * as TabsPrimitive from \"@radix-ui/react-tabs\"\n\nimport { ComponentProps } from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nconst tabsSlots = tv({\n  slots: {\n    root: \"flex flex-col gap-2\",\n    list:\n      \"inline-flex h-9 items-center justify-center rounded-lg bg-transparent p-1 text-muted-foreground\",\n    trigger:\n      \"inline-flex items-center justify-center px-3 py-1 text-sm font-medium whitespace-nowrap transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-b-2 data-[state=active]:border-b-primary data-[state=active]:text-foreground\",\n    content:\n      \"mt-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-hidden text-foreground\",\n  },\n})\n\nconst { root, list, trigger, content } = tabsSlots()\n\nfunction Tabs({\n  className,\n  ...props\n}: ComponentProps<typeof TabsPrimitive.Root>) {\n  return (\n    <TabsPrimitive.Root\n      data-slot=\"tabs\"\n      className={root({ className })}\n      {...props}\n    />\n  )\n}\n\nfunction TabsList({\n  className,\n  ...props\n}: ComponentProps<typeof TabsPrimitive.List>) {\n  return (\n    <TabsPrimitive.List\n      data-slot=\"tabs-list\"\n      className={list({ className })}\n      {...props}\n    />\n  )\n}\n\nfunction TabsTrigger({\n  className,\n  value,\n  ...props\n}: ComponentProps<typeof TabsPrimitive.Trigger>) {\n  return (\n    <TabsPrimitive.Trigger\n      data-slot=\"tabs-trigger\"\n      value={value}\n      className={trigger({ className })}\n      {...props}\n    />\n  )\n}\n\nfunction TabsContent({\n  className,\n  value,\n  ...props\n}: ComponentProps<typeof TabsPrimitive.Content>) {\n  return (\n    <TabsPrimitive.Content\n      data-slot=\"tabs-content\"\n      value={value}\n      className={content({ className })}\n      {...props}\n    />\n  )\n}\n\nexport { Tabs, TabsContent, TabsList, TabsTrigger }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

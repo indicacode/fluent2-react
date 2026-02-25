@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "title": "Label",
+  "description": "Fluent2Tailwind Label component.",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/label/label.tsx",
+      "content": "\"use client\"\n\nimport { Root } from \"@radix-ui/react-label\"\nimport { ComponentProps, ReactNode } from \"react\"\nimport { tv, VariantProps } from \"tailwind-variants\"\n\nconst label = tv({\n  base: \"flex justify-center gap-0.5 align-middle text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n  variants: {\n    disabled: {\n      true: \"cursor-not-allowed opacity-50\",\n    },\n    weight: {\n      semibold: \"font-semibold\",\n      regular: \"font-normal\",\n    },\n    size: {\n      small: \"text-sm\",\n      medium: \"text-md\",\n      large: \"text-lg\",\n    },\n  },\n})\n\nexport type LabelProps = VariantProps<typeof label> &\n  ComponentProps<typeof Root> & {\n    required?: boolean\n    disabled?: boolean\n    children: ReactNode\n  }\n\nexport function Label({\n  className,\n  required,\n  children,\n  disabled,\n  weight,\n  size,\n  ...props\n}: LabelProps) {\n  return (\n    <Root\n      data-slot=\"label\"\n      className={label({ className, size, disabled, weight })}\n      {...props}\n    >\n      {children}\n      {required && <span className=\"text-destructive\">*</span>}\n    </Root>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

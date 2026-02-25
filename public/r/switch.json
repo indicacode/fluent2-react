@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "Fluent2Tailwind Switch component.",
+  "dependencies": [
+    "@radix-ui/react-switch",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/switch/switch.tsx",
+      "content": "\"use client\"\n\nimport * as SwitchPrimitive from \"@radix-ui/react-switch\"\n\nimport { ComponentProps, ReactNode, useId } from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nconst switchSlots = tv({\n  slots: {\n    root:\n      \"peer data-[state=checked]:bg-primary inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-xs transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 data-[state=unchecked]:bg-secondary\",\n    thumb:\n      \"bg-background pointer-events-none block h-4 w-4 rounded-full ring-0 shadow-lg transition-transform data-[state=checked]:translate-x-4 data-[state=checked]:bg-primary-foreground data-[state=unchecked]:translate-x-0\",\n  },\n  variants: {\n    size: {\n      sm: {\n        root: \"h-4 w-7\",\n        thumb: \"h-3 w-3 data-[state=checked]:translate-x-3\",\n      },\n      md: {\n        root: \"h-5 w-9\",\n        thumb: \"h-4 w-4 data-[state=checked]:translate-x-4\",\n      },\n      lg: {\n        root: \"h-6 w-11\",\n        thumb: \"h-5 w-5 data-[state=checked]:translate-x-5\",\n      },\n    },\n  },\n  defaultVariants: {\n    size: \"md\",\n  },\n})\n\nconst { root, thumb } = switchSlots()\n\nconst switchFieldSlots = tv({\n  slots: {\n    wrapper: \"inline-flex items-center gap-2\",\n    label: \"text-sm text-foreground\",\n  },\n  variants: {\n    labelPosition: {\n      before: { wrapper: \"flex-row-reverse justify-end\" },\n      after: { wrapper: \"flex-row\" },\n    },\n    disabled: {\n      true: { label: \"opacity-50\" },\n    },\n  },\n  defaultVariants: {\n    labelPosition: \"after\",\n  },\n})\n\nexport function Switch({\n  className,\n  label,\n  labelPosition = \"after\",\n  labelClassName,\n  id,\n  size = \"md\",\n  ...props\n}: ComponentProps<typeof SwitchPrimitive.Root> & {\n  label?: ReactNode\n  labelPosition?: \"before\" | \"after\"\n  labelClassName?: string\n  size?: \"sm\" | \"md\" | \"lg\"\n}) {\n  const autoId = useId()\n  const controlId = id ?? `switch-${autoId}`\n  const { wrapper, label: labelSlot } = switchFieldSlots({\n    labelPosition,\n    disabled: props.disabled,\n  })\n\n  if (!label) {\n    return (\n      <SwitchPrimitive.Root\n        data-slot=\"switch\"\n        id={id}\n        className={root({ size, className })}\n        {...props}\n      >\n        <SwitchPrimitive.Thumb\n          data-slot=\"switch-thumb\"\n          className={thumb({ size })}\n        />\n      </SwitchPrimitive.Root>\n    )\n  }\n\n  return (\n    <label htmlFor={controlId} className={wrapper()}>\n      <SwitchPrimitive.Root\n        data-slot=\"switch\"\n        id={controlId}\n        className={root({ size, className })}\n        {...props}\n      >\n        <SwitchPrimitive.Thumb\n          data-slot=\"switch-thumb\"\n          className={thumb({ size })}\n        />\n      </SwitchPrimitive.Root>\n      <span className={labelSlot({ className: labelClassName })}>\n        {label}\n      </span>\n    </label>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

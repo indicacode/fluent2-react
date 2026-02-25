@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluent-provider",
+  "title": "Fluent Provider",
+  "description": "Fluent2Tailwind Fluent Provider component.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/fluent-provider/fluent-provider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nexport type FluentProviderProps = React.ComponentPropsWithoutRef<\"div\"> & {\n  theme?: Record<string, string | number>\n  applyStylesToPortals?: boolean\n  targetDocument?: Document\n  dir?: \"ltr\" | \"rtl\"\n  as?: keyof JSX.IntrinsicElements\n}\n\nfunction toCssVar(key: string) {\n  if (key.startsWith(\"--\")) return key\n  return `--${key}`\n}\n\nexport function FluentProvider({\n  theme,\n  applyStylesToPortals = false,\n  targetDocument,\n  dir = \"ltr\",\n  as,\n  style,\n  children,\n  ...props\n}: FluentProviderProps) {\n  const Comp = (as ?? \"div\") as keyof JSX.IntrinsicElements\n\n  const inlineStyle = React.useMemo(() => {\n    if (!theme) return style\n    const cssVars: Record<string, string | number> = {}\n    for (const [key, value] of Object.entries(theme)) {\n      cssVars[toCssVar(key)] = value\n    }\n    return { ...cssVars, ...style }\n  }, [theme, style])\n\n  React.useEffect(() => {\n    if (!applyStylesToPortals || !theme) return\n    const doc = targetDocument ?? (typeof document !== \"undefined\" ? document : null)\n    if (!doc) return\n    const root = doc.documentElement\n    const previous: Record<string, string> = {}\n\n    for (const [key, value] of Object.entries(theme)) {\n      const cssKey = toCssVar(key)\n      previous[cssKey] = root.style.getPropertyValue(cssKey)\n      root.style.setProperty(cssKey, String(value))\n    }\n\n    return () => {\n      for (const [key, value] of Object.entries(previous)) {\n        if (value) {\n          root.style.setProperty(key, value)\n        } else {\n          root.style.removeProperty(key)\n        }\n      }\n    }\n  }, [applyStylesToPortals, targetDocument, theme])\n\n  return (\n    <Comp\n      data-slot=\"fluent-provider\"\n      dir={dir}\n      style={inlineStyle}\n      {...props}\n    >\n      {children}\n    </Comp>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

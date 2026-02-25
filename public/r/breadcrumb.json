@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "title": "Breadcrumb",
+  "description": "Fluent2Tailwind Breadcrumb component.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "lucide-react",
+    "react",
+    "react-icons",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/breadcrumb/breadcrumb.tsx",
+      "content": "import { Slot } from \"@radix-ui/react-slot\"\nimport { MoreHorizontal } from \"lucide-react\"\nimport * as React from \"react\"\nimport { GoChevronRight } from \"react-icons/go\"\n\nimport { tv } from \"tailwind-variants\"\n\nconst breadcrumbSlots = tv({\n  slots: {\n    list:\n      \"text-muted-foreground flex flex-wrap items-center gap-1.5 break-words sm:gap-2.5\",\n    item: \"inline-flex items-center gap-1.5\",\n    link: \"hover:text-foreground transition-colors\",\n    page: \"text-foreground font-semibold\",\n    separator: \"\",\n    ellipsis: \"flex size-9 items-center justify-center\",\n  },\n  variants: {\n    size: {\n      small: { list: \"text-sm\", item: \"text-sm\", link: \"text-sm\", page: \"text-sm\" },\n      medium: { list: \"text-md\", item: \"text-md\", link: \"text-md\", page: \"text-md\" },\n      large: { list: \"text-lg\", item: \"text-lg\", link: \"text-lg\", page: \"text-lg\" },\n    },\n  },\n  defaultVariants: {\n    size: \"medium\",\n  },\n})\n\nconst { list, item, link, page, separator, ellipsis } = breadcrumbSlots()\n\nfunction Breadcrumb({\n  focusMode,\n  ...props\n}: React.ComponentProps<\"nav\"> & {\n  focusMode?: \"tab\" | \"arrow\"\n}) {\n  return (\n    <nav\n      aria-label=\"breadcrumb\"\n      data-slot=\"breadcrumb\"\n      data-focus-mode={focusMode}\n      {...props}\n    />\n  )\n}\n\nfunction BreadcrumbList({\n  size,\n  className,\n  ...props\n}: React.ComponentProps<\"ol\"> & { size?: \"small\" | \"medium\" | \"large\" }) {\n  return (\n    <ol\n      data-slot=\"breadcrumb-list\"\n      className={list({ size, className })}\n      {...props}\n    />\n  )\n}\n\nfunction BreadcrumbItem({\n  size,\n  className,\n  ...props\n}: React.ComponentProps<\"li\"> & { size?: \"small\" | \"medium\" | \"large\" }) {\n  return (\n    <li\n      data-slot=\"breadcrumb-item\"\n      className={item({ size, className })}\n      {...props}\n    />\n  )\n}\n\nfunction BreadcrumbLink({\n  size,\n  asChild,\n  className,\n  ...props\n}: React.ComponentProps<\"a\"> & {\n  asChild?: boolean\n  size?: \"small\" | \"medium\" | \"large\"\n}) {\n  const Comp = asChild ? Slot : \"a\"\n\n  return (\n    <Comp\n      data-slot=\"breadcrumb-link\"\n      className={link({ size, className })}\n      {...props}\n    />\n  )\n}\n\nfunction BreadcrumbPage({\n  size,\n  className,\n  ...props\n}: React.ComponentProps<\"span\"> & {\n  size?: \"small\" | \"medium\" | \"large\"\n}) {\n  return (\n    <span\n      data-slot=\"breadcrumb-page\"\n      role=\"link\"\n      aria-disabled=\"true\"\n      aria-current=\"page\"\n      className={page({ size, className })}\n      {...props}\n    />\n  )\n}\n\nfunction BreadcrumbSeparator({\n  children,\n  className,\n  ...props\n}: React.ComponentProps<\"li\">) {\n  return (\n    <li\n      data-slot=\"breadcrumb-separator\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={separator({ className })}\n      {...props}\n    >\n      {children ?? <GoChevronRight />}\n    </li>\n  )\n}\n\nfunction BreadcrumbEllipsis({\n  className,\n  ...props\n}: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"breadcrumb-ellipsis\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={ellipsis({ className })}\n      {...props}\n    >\n      <MoreHorizontal className=\"size-4\" />\n      <span className=\"sr-only\">More</span>\n    </span>\n  )\n}\n\nexport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

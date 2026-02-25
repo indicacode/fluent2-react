@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon",
+  "title": "Icon",
+  "description": "Fluent2Tailwind Icon component.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/icon/icon.tsx",
+      "content": "import * as React from \"react\"\n\nexport type IconProps = React.ComponentPropsWithoutRef<\"span\"> & {\n  icon?: React.ReactElement\n  size?: number\n  color?: string\n}\n\nfunction Icon({ icon, children, size = 16, color, style, ...props }: IconProps) {\n  const content = icon ?? children\n\n  if (React.isValidElement(content)) {\n    return React.cloneElement(content as React.ReactElement, {\n      width: size,\n      height: size,\n      color,\n      ...((content as React.ReactElement).props || {}),\n    })\n  }\n\n  return (\n    <span\n      data-slot=\"icon\"\n      style={{ width: size, height: size, color, ...style }}\n      {...props}\n    >\n      {content}\n    </span>\n  )\n}\n\nexport { Icon }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

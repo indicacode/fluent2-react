@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-badge",
+  "title": "Status Badge",
+  "description": "Fluent2Tailwind Status Badge component.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/status-badge/status-badge.tsx",
+      "content": "import { tv, VariantProps } from \"tailwind-variants\" //--------------------types--------------------//\n//--------------------types--------------------//\n\ntype StatusBadgeProps = VariantProps<typeof statusBadge> & {\n  className?: string\n  outOfOffice?: boolean\n}\n\n//--------------------------------------------//\n\nconst statusBadge = tv({\n  base: \"absolute right-0 bottom-0 aspect-square rounded-full\",\n  variants: {\n    variant: {\n      default: \"rounded-full\",\n    },\n    size: {\n      sm: \"h-2 w-2\", // 12px\n      md: \"h-3 w-3\", // 16px\n      lg: \"right-0.5 bottom-0.5 h-4 w-4\", // 20px\n      // icon: \"h-1 w-1\",\n    },\n    status: {\n      online: \"bg-success\",\n      offline: \"bg-border\",\n      away: \"bg-warning\",\n      busy: \"bg-error\",\n      \"do-not-disturb\": \"bg-destructive\",\n    },\n    outOfOffice: {\n      true: \"ring-2 ring-background\",\n    },\n    shape: {\n      circular: \"rounded-full\",\n      rounded: \"rounded-md\",\n      square: \"rounded-none\",\n    },\n    appearance: {\n      filled: \"bg-opacity-100\",\n      ghost: \"bg-opacity-0\",\n      outline: \"border border-current\",\n      tint: \"bg-opacity-50\",\n    },\n    iconPosition: {\n      before: \"flex-row-reverse\",\n      after: \"flex-row\",\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n    size: \"md\",\n  },\n})\n\nexport function StatusBadge({\n  status = \"offline\",\n  appearance = \"filled\",\n  iconPosition = \"before\",\n  shape = \"circular\",\n  size,\n  variant = \"default\",\n  className,\n  outOfOffice = false,\n}: StatusBadgeProps) {\n  return (\n    <div\n      className={statusBadge({\n        status,\n        appearance,\n        iconPosition,\n        shape,\n        size,\n        variant,\n        outOfOffice,\n        className,\n      })}\n    />\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

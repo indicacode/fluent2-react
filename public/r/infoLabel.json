@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "infoLabel",
+  "title": "Infolabel",
+  "description": "Fluent2Tailwind Infolabel component.",
+  "dependencies": [
+    "@fluentui/react-icons",
+    "@radix-ui/react-popover",
+    "react",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/fluent2tailwind/infoLabel/infoLabel.tsx",
+      "content": "import {\n  Info12Regular,\n  Info16Regular,\n  Info24Regular,\n} from \"@fluentui/react-icons\"\nimport * as PopoverRadix from \"@radix-ui/react-popover\"\nimport { ReactNode } from \"react\"\nimport { tv } from \"tailwind-variants\"\n\nimport { Label } from \"@/registry/fluent2tailwind/label/label\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/registry/fluent2tailwind/popover/popover\"\n\nconst labelInfo = tv({\n  slots: {\n    container:\n      \"relative flex h-fit max-h-fit w-fit max-w-fit justify-center gap-1 align-middle\",\n  },\n  variants: {\n    size: {\n      small: { container: \"text-xs\" },\n      medium: { container: \"text-sm\" },\n      large: { container: \"text-base\" },\n    },\n  },\n})\n\nconst { container } = labelInfo()\n\nfunction SizedIcons({\n  size = \"medium\",\n}: {\n  size: \"small\" | \"medium\" | \"large\"\n}) {\n  return (\n    <>\n      {size === \"small\" && <Info12Regular />}\n      {size === \"medium\" && <Info16Regular />}\n      {size === \"large\" && <Info24Regular />}\n    </>\n  )\n}\n\nexport default function InfoLabel({\n  children,\n  info,\n  size = \"medium\",\n}: {\n  children: ReactNode\n  info?: ReactNode\n  size?: \"small\" | \"medium\" | \"large\"\n}) {\n  return (\n    <div className={container({})}>\n      <Label size={size}>{children}</Label>\n      <Popover>\n        <PopoverTrigger className=\"max-w-fit\">\n          <SizedIcons size={size} />\n        </PopoverTrigger>\n        <PopoverContent align=\"start\" side=\"top\">\n          {info ?? children}\n          <PopoverRadix.Arrow className=\"fill-popover\" />\n        </PopoverContent>\n      </Popover>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

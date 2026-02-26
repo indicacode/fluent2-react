@@ -1,0 +1,1441 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Fluent2Tailwind",
+  "homepage": "https://black-flower-07bc9f70f.1.azurestaticapps.net/",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Fluent2Tailwind Accordion component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/accordion/accordion.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "@radix-ui/react-icons",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "Fluent2Tailwind Alert component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/alert/alert.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "Fluent2Tailwind Alert Dialog component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/alert-dialog/alert-dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-alert-dialog",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "Fluent2Tailwind Aspect Ratio component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/aspect-ratio/aspect-ratio.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-aspect-ratio"
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "Fluent2Tailwind Avatar component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/avatar/avatar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-avatar",
+        "@react-icons/all-files",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:component",
+      "title": "Avatar Group",
+      "description": "Fluent2Tailwind Avatar Group component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/avatar-group/avatar-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Fluent2Tailwind Badge component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/badge/badge.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "Fluent2Tailwind Breadcrumb component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/breadcrumb/breadcrumb.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "lucide-react",
+        "react",
+        "react-icons",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Fluent2Tailwind Button component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/button/button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "Fluent2Tailwind Calendar component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/calendar/calendar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react",
+        "react-day-picker",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "Fluent2Tailwind Card component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/card/card.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/card/card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "Fluent2Tailwind Carousel component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/carousel/carousel.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/carousel/carousel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "embla-carousel-react",
+        "react",
+        "react-icons",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:component",
+      "title": "Chart",
+      "description": "Fluent2Tailwind Chart component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/chart/chart.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/chart/chart.types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/chart/chart.utils.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "recharts",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "Fluent2Tailwind Checkbox component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/checkbox/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "react",
+        "react-icons",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "Fluent2Tailwind Collapsible component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/collapsible/collapsible.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-collapsible"
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "title": "Color Picker",
+      "description": "Fluent2Tailwind Color Picker component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/color-picker/color-picker.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "Fluent2Tailwind Combobox component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/combobox/combobox.parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/combobox/combobox.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/combobox/combobox.types.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "dependencies": [
+        "cmdk",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "Fluent2Tailwind Command component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/command/command.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "cmdk",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "Fluent2Tailwind Context Menu component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/context-menu/context-menu.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/context-menu/context-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-context-menu",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "customCommandEmpty",
+      "type": "registry:component",
+      "title": "Customcommandempty",
+      "description": "Fluent2Tailwind Customcommandempty component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/customCommandEmpty/customCommandEmpty.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "cmdk",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Data Table",
+      "description": "Fluent2Tailwind Data Table component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.body.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.columnHeader.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.columnToggle.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.components.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.data.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.filter.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.pagination.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/fluent2tailwind/data-table/data-table.types.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-icons",
+        "@tanstack/react-table",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "Fluent2Tailwind Dialog component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/dialog/dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "divider",
+      "type": "registry:component",
+      "title": "Divider",
+      "description": "Fluent2Tailwind Divider component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/divider/divider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-separator",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "Fluent2Tailwind Drawer component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/drawer/drawer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants",
+        "vaul"
+      ]
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:component",
+      "title": "Dropdown",
+      "description": "Fluent2Tailwind Dropdown component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/dropdown/dropdown.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/dropdown/dropdown.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "react",
+        "react-icons",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "Fluent2Tailwind Dropdown Menu component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/dropdown-menu/dropdown-menu.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/dropdown-menu/dropdown-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Fluent2Tailwind Field component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/field/field.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "fluent-provider",
+      "type": "registry:component",
+      "title": "Fluent Provider",
+      "description": "Fluent2Tailwind Fluent Provider component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/fluent-provider/fluent-provider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react"
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:component",
+      "title": "Form",
+      "description": "Fluent2Tailwind Form component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/form/form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot",
+        "react",
+        "react-hook-form",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "Fluent2Tailwind Hover Card component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/hover-card/hover-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-hover-card",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:component",
+      "title": "Icon",
+      "description": "Fluent2Tailwind Icon component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/icon/icon.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react"
+      ]
+    },
+    {
+      "name": "icons",
+      "type": "registry:component",
+      "title": "Icons",
+      "description": "Fluent2Tailwind Icons component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/icons/icons.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "type": "registry:component",
+      "title": "Image",
+      "description": "Fluent2Tailwind Image component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/image/image.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "infoLabel",
+      "type": "registry:component",
+      "title": "Infolabel",
+      "description": "Fluent2Tailwind Infolabel component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/infoLabel/infoLabel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@fluentui/react-icons",
+        "@radix-ui/react-popover",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "Fluent2Tailwind Input component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/input/input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:component",
+      "title": "Input Otp",
+      "description": "Fluent2Tailwind Input Otp component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/input-otp/input-otp.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "input-otp",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "title": "Label",
+      "description": "Fluent2Tailwind Label component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/label/label.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-label",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "link",
+      "type": "registry:component",
+      "title": "Link",
+      "description": "Fluent2Tailwind Link component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/link/link.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "list",
+      "type": "registry:component",
+      "title": "List",
+      "description": "Fluent2Tailwind List component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/list/list.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:component",
+      "title": "Menu",
+      "description": "Fluent2Tailwind Menu component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/menu/menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:component",
+      "title": "Menubar",
+      "description": "Fluent2Tailwind Menubar component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/menubar/menubar.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/menubar/menubar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-menubar",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "message-bar",
+      "type": "registry:component",
+      "title": "Message Bar",
+      "description": "Fluent2Tailwind Message Bar component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/message-bar/message-bar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@fluentui/react-icons",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "nav",
+      "type": "registry:component",
+      "title": "Nav",
+      "description": "Fluent2Tailwind Nav component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/nav/nav.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@phosphor-icons/react",
+        "next",
+        "react"
+      ]
+    },
+    {
+      "name": "navbar",
+      "type": "registry:component",
+      "title": "Navbar",
+      "description": "Fluent2Tailwind Navbar component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/navbar/navbar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "next"
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "Fluent2Tailwind Navigation Menu component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/navigation-menu/navigation-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-navigation-menu",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Fluent2Tailwind Pagination component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/pagination/pagination.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "persona",
+      "type": "registry:component",
+      "title": "Persona",
+      "description": "Fluent2Tailwind Persona component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/persona/persona.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "Fluent2Tailwind Popover component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/popover/popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "Fluent2Tailwind Progress component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/progress/progress.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-progress",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Fluent2Tailwind Radio Group component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/radio-group/radio-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "rating",
+      "type": "registry:component",
+      "title": "Rating",
+      "description": "Fluent2Tailwind Rating component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/rating/rating.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@fluentui/react-icons",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "rating-display",
+      "type": "registry:component",
+      "title": "Rating Display",
+      "description": "Fluent2Tailwind Rating Display component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/rating-display/rating-display.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:component",
+      "title": "Resizable",
+      "description": "Fluent2Tailwind Resizable component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/resizable/resizable.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react",
+        "react-resizable-panels",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "Fluent2Tailwind Scroll Area component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/scroll-area/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-scroll-area",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "searchbox",
+      "type": "registry:component",
+      "title": "Searchbox",
+      "description": "Fluent2Tailwind Searchbox component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/searchbox/searchbox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "react-icons",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Fluent2Tailwind Select component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/select/select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-icons",
+        "@radix-ui/react-select",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "Fluent2Tailwind Sheet component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/sheet/sheet.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Fluent2Tailwind Skeleton component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/skeleton/skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "Fluent2Tailwind Slider component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/slider/slider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slider",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:component",
+      "title": "Sonner",
+      "description": "Fluent2Tailwind Sonner component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/sonner/sonner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "next-themes",
+        "react",
+        "sonner"
+      ]
+    },
+    {
+      "name": "spin-button",
+      "type": "registry:component",
+      "title": "Spin Button",
+      "description": "Fluent2Tailwind Spin Button component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/spin-button/spin-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "Fluent2Tailwind Spinner component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/spinner/spinner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:component",
+      "title": "Status Badge",
+      "description": "Fluent2Tailwind Status Badge component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/status-badge/status-badge.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "swatch-picker",
+      "type": "registry:component",
+      "title": "Swatch Picker",
+      "description": "Fluent2Tailwind Swatch Picker component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/swatch-picker/swatch-picker.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "Fluent2Tailwind Switch component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/switch/switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-switch",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "Fluent2Tailwind Table component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/table/table.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Fluent2Tailwind Tabs component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/tabs/tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tabs",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:component",
+      "title": "Tag",
+      "description": "Fluent2Tailwind Tag component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/tag/tag.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "tag-picker",
+      "type": "registry:component",
+      "title": "Tag Picker",
+      "description": "Fluent2Tailwind Tag Picker component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/tag-picker/tag-picker.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react"
+      ]
+    },
+    {
+      "name": "teaching-popover",
+      "type": "registry:component",
+      "title": "Teaching Popover",
+      "description": "Fluent2Tailwind Teaching Popover component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/teaching-popover/teaching-popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "text",
+      "type": "registry:component",
+      "title": "Text",
+      "description": "Fluent2Tailwind Text component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/text/text.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "Fluent2Tailwind Textarea component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/textarea/textarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:component",
+      "title": "Toast",
+      "description": "Fluent2Tailwind Toast component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/toast/toast.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@fluentui/react-icons",
+        "@radix-ui/react-toast",
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "toaster",
+      "type": "registry:component",
+      "title": "Toaster",
+      "description": "Fluent2Tailwind Toaster component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/toaster/toaster.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "Fluent2Tailwind Toggle component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/toggle/toggle.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toggle",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:component",
+      "title": "Toggle Group",
+      "description": "Fluent2Tailwind Toggle Group component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/toggle-group/toggle-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toggle-group",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:component",
+      "title": "Toolbar",
+      "description": "Fluent2Tailwind Toolbar component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/toolbar/toolbar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toolbar",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Fluent2Tailwind Tooltip component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/tooltip/tooltip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tooltip",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "tree",
+      "type": "registry:component",
+      "title": "Tree",
+      "description": "Fluent2Tailwind Tree component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/tree/tree.styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/fluent2tailwind/tree/tree.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react",
+        "tailwind-variants"
+      ]
+    },
+    {
+      "name": "use-toast",
+      "type": "registry:hook",
+      "title": "Use Toast",
+      "description": "Fluent2Tailwind Use Toast component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/use-toast/use-toast.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "dependencies": [
+        "react"
+      ]
+    },
+    {
+      "name": "useDataTable",
+      "type": "registry:component",
+      "title": "Usedatatable",
+      "description": "Fluent2Tailwind Usedatatable component.",
+      "files": [
+        {
+          "path": "registry/fluent2tailwind/useDataTable/useDataTable.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@tanstack/react-table",
+        "react"
+      ]
+    }
+  ]
+}

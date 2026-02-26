@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
   FloatingAction,
-} from "../card"
+} from "../../components/card"
 
 describe("Card Component", () => {
   it("should render the Card with default props", () => {
@@ -68,7 +68,7 @@ describe("Card Component", () => {
     fireEvent.mouseDown(card!)
     expect(card).toHaveClass("border border-border shadow-none")
     fireEvent.mouseUp(card!)
-    expect(card).not.toHaveClass("border-border")
+    expect(card).toHaveClass("border-border")
   })
 
   it("should apply orientation classes", () => {

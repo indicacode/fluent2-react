@@ -6,7 +6,7 @@ import { ThemeProvider } from "next-themes"
 import { Line, LineChart } from "recharts"
 import { useForm } from "react-hook-form"
 
-import { Alert, AlertDescription, AlertTitle } from "../alert"
+import { Alert, AlertDescription, AlertTitle } from "../../components/alert"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,15 +17,15 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../alert-dialog"
-import { AspectRatio } from "../aspect-ratio"
-import { Calendar } from "../calendar"
-import { ChartContainer } from "../chart"
+} from "../../components/alert-dialog"
+import { AspectRatio } from "../../components/aspect-ratio"
+import { Calendar } from "../../components/calendar"
+import { ChartContainer } from "../../components/chart"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../collapsible"
+} from "../../components/collapsible"
 import {
   Command,
   CommandEmpty,
@@ -35,20 +35,20 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "../command"
-import { CommandEmpty as CustomCommandEmpty } from "../customCommandEmpty"
+} from "../../components/command"
+import { CommandEmpty as CustomCommandEmpty } from "../../components/customCommandEmpty"
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "../context-menu"
+} from "../../components/context-menu"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../dropdown-menu"
+} from "../../components/dropdown-menu"
 import {
   Form,
   FormControl,
@@ -57,35 +57,35 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../form"
+} from "../../components/form"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "../hover-card"
-import { Icon } from "../icon"
-import { Icon as IconFromIcons } from "../icons"
-import InfoLabel from "../infoLabel"
+} from "../../components/hover-card"
+import { Icon } from "../../components/icon"
+import { Icon as IconFromIcons } from "../../components/icons"
+import InfoLabel from "../../components/infoLabel"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "../input-otp"
+} from "../../components/input-otp"
 import {
   Menubar,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
   MenubarTrigger,
-} from "../menubar"
+} from "../../components/menubar"
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "../navigation-menu"
+} from "../../components/navigation-menu"
 import {
   Pagination,
   PaginationContent,
@@ -93,13 +93,13 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../pagination"
+} from "../../components/pagination"
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "../resizable"
-import { ScrollArea } from "../scroll-area"
+} from "../../components/resizable"
+import { ScrollArea } from "../../components/scroll-area"
 import {
   Sheet,
   SheetContent,
@@ -108,12 +108,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "../sheet"
-import { Toaster as SonnerToaster } from "../sonner"
-import { StatusBadge } from "../status-badge"
-import { Toaster } from "../toaster"
-import { Toggle } from "../toggle"
-import { ToggleGroup, ToggleGroupItem } from "../toggle-group"
+} from "../../components/sheet"
+import { Toaster as SonnerToaster } from "../../components/sonner"
+import { StatusBadge } from "../../components/status-badge"
+import { Toaster } from "../../components/toaster"
+import { Toggle } from "../../components/toggle"
+import { ToggleGroup, ToggleGroupItem } from "../../components/toggle-group"
 
 function renderWithTheme(children: ReactNode) {
   return render(
@@ -234,7 +234,7 @@ describe("chart", () => {
 describe("collapsible", () => {
   it("toggles content", () => {
     render(
-      <Collapsible defaultOpen>
+      <Collapsible>
         <CollapsibleTrigger>Toggle</CollapsibleTrigger>
         <CollapsibleContent>Hidden content</CollapsibleContent>
       </Collapsible>

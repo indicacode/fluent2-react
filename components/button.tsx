@@ -63,7 +63,7 @@ function handleToggle(event: MouseEvent<HTMLElement>, disabled: boolean | undefi
   }
 }
 
-export default function Button({
+function Button({
   disabled = false,
   onClick = () => {},
   asChild = false,
@@ -120,3 +120,6 @@ export default function Button({
     </Comp>
   )
 }
+
+export { Button }
+export default Button

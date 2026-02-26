@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
 @variant dark (&:is(.dark *));
-
+.root {
+  isolation: isolate;
+}
+body {   position: relative; }
 @theme {
   --font-montserrat: Montserrat;
   --font-Segoe: Segoe, sans-serif;
@@ -100,12 +103,12 @@
       height: 0;
     }
     to {
-      height: var(--radix-accordion-content-height);
+      height: var(--accordion-panel-height);
     }
   }
   @keyframes accordion-up {
     from {
-      height: var(--radix-accordion-content-height);
+      height: var(--accordion-panel-height);
     }
     to {
       height: 0;

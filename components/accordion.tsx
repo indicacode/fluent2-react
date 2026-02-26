@@ -25,13 +25,13 @@ const accordionSlots = tv({
     // ---group--- //
     headerStyles: "flex items-center bg-transparent",
     triggerStyles:
-      "flex flex-1 items-center gap-2 text-sm font-medium text-foreground transition-all [&[data-state=open]>svg]:rotate-90",
+      "flex flex-1 items-center gap-2 text-sm font-medium text-foreground transition-all [&[data-panel-open]>svg]:rotate-90",
     iconStyles:
       "h-4 w-4 shrink-0 text-foreground transition-transform duration-200",
     // ---group--- //
 
     contentStyles:
-      "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden bg-transparent text-sm text-foreground",
+      "data-[closed]:animate-accordion-up data-[open]:animate-accordion-down overflow-hidden bg-transparent text-sm text-foreground",
   },
   variants: {
     position: {

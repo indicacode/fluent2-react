@@ -23,3 +23,7 @@ if (typeof global !== "undefined" && !global.ResizeObserver) {
     disconnect() {}
   }
 }
+
+if (typeof window !== "undefined" && !window.HTMLElement.prototype.scrollIntoView) {
+  window.HTMLElement.prototype.scrollIntoView = () => {}
+}

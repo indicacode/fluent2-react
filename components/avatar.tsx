@@ -49,7 +49,6 @@ const avatarSlots = tv({
   defaultVariants: {
     variant: "default",
     size: "md",
-    shape: "circular",
     activeAppearance: "ring",
   },
 })
@@ -175,6 +174,7 @@ function AvatarFallback({
       ) : (
         <CiUser
           size={iconSize}
+          data-size={iconSize}
           data-testid="fallback-icon"
           className="text-2xl"
         />

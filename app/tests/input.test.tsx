@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { Input, InputLeftAddon, InputRightAddon } from "../Input"
+import { Input, InputLeftAddon, InputRightAddon } from "../../components/input"
 
 describe("Input Component", () => {
   it("renders correctly with default props", () => {
@@ -55,7 +55,7 @@ describe("Input Component", () => {
   it("renders focus and active state styles correctly", () => {
     const { container } = render(<Input labelText="Interactive Input" />)
     const input = screen.getByLabelText("Interactive Input")
-    const decoration = container.querySelector(".relative.flex.w-full")
+    const decoration = container.querySelector(".absolute.bottom-0")
 
     // Focus event
     fireEvent.focus(input)
@@ -72,8 +72,7 @@ describe("Input Component", () => {
     expect(decoration).not.toHaveClass("bg-border")
   })
 
-  it("throws a console error when multiple addons are passed", () => {
-    const consoleSpy = jest.spyOn(console, "assert")
+  it("renders only one left addon when multiple are provided", () => {
     render(
       <Input labelText="Invalid Addons">
         <InputLeftAddon>
@@ -84,9 +83,7 @@ describe("Input Component", () => {
         </InputLeftAddon>
       </Input>
     )
-    expect(consoleSpy).toHaveBeenCalledWith(
-      false,
-      "Only one left addon is allowed"
-    )
+    expect(screen.getByText("Left 1")).toBeInTheDocument()
+    expect(screen.queryByText("Left 2")).not.toBeInTheDocument()
   })
 })

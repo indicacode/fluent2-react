@@ -11,7 +11,7 @@ import {
   DrawerOverlay,
   DrawerTitle,
   DrawerTrigger,
-} from "../drawer"
+} from "../../components/drawer"
 
 describe("Drawer Component", () => {
   it("renders the drawer with default props", () => {

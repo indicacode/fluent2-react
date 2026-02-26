@@ -1,7 +1,7 @@
 import { expect, it } from "@jest/globals"
 import "@testing-library/jest-dom"
 import { fireEvent, render } from "@testing-library/react"
-import { Button } from "../button"
+import { Button } from "../../components/button"
 
 describe("Button component", () => {
   it("renders the button with default props", () => {

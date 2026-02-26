@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import { Avatar, AvatarFallback, AvatarImage } from "../avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/avatar"
 
 // Mock StatusBadge component if necessary
-jest.mock("../status-badge", () => ({
+jest.mock("../../components/status-badge", () => ({
   StatusBadge: jest.fn(({ size, status }) => (
     <div data-testid="status-badge" data-size={size} data-status={status}></div>
   )),

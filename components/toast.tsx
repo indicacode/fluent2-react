@@ -30,7 +30,7 @@ const toastVariants = tv({
   slots: {
     toast:
       "group pointer-events-auto relative flex w-full flex-col items-center gap-2 overflow-hidden rounded-sm p-4 shadow-md transition-all " +
-      "data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]" +
+      "data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--toast-swipe-movement-x)] data-[swipe=move]:translate-x-[var(--toast-swipe-movement-x)]" +
       "data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[swipe=move]:transition-none" +
       "data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full sm:data-[state=open]:slide-in-from-bottom-full",
     toastViewport:

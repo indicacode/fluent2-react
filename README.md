@@ -46,7 +46,38 @@ Structure philosophy:
 pnpm add fluent2-react
 ```
 
-Or via shadcn registry (if applicable).
+Or via shadcn registry:
+
+1) Initialize shadcn (if your project does not have `components.json` yet):
+
+``` bash
+pnpm dlx shadcn@latest init
+```
+
+2) Add a component directly from the deployed registry:
+
+``` bash
+pnpm dlx shadcn@latest add "https://agreeable-moss-048e15a0f.1.azurestaticapps.net/r/button.json"
+```
+
+You can replace `button.json` with any component available under `/r/`
+(for example: `form.json`, `input.json`, `dialog.json`).
+
+3) Optional: configure a short registry alias in `components.json`:
+
+``` json
+{
+  "registries": {
+    "@fluent2": "https://agreeable-moss-048e15a0f.1.azurestaticapps.net/r/{name}.json"
+  }
+}
+```
+
+Then install by alias:
+
+``` bash
+pnpm dlx shadcn@latest add @fluent2/form @fluent2/input @fluent2/button
+```
 
 ------------------------------------------------------------------------
 

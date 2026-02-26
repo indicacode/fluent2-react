@@ -42,12 +42,6 @@ Structure philosophy:
 
 ## 📦 Installation
 
-``` bash
-pnpm add fluent2-react
-```
-
-Or via shadcn registry:
-
 1) Initialize shadcn (if your project does not have `components.json` yet):
 
 ``` bash

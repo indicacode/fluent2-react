@@ -119,9 +119,58 @@ export const components = [
   tree_card,
 ] as ComponentsType
 
+type SideBarGroup = {
+  title: string
+  items: string[]
+}
+
+type SideBarItem = string | SideBarGroup
+
+function groupOnlyFamilies(headers: string[]): SideBarItem[] {
+  const normalized = new Set(headers.map((header) => header.toLowerCase()))
+  const familyByHeader = new Map<string, string>()
+  const familyItems = new Map<string, string[]>()
+
+  headers.forEach((header) => {
+    const [firstWord] = header.split(" ")
+    const family =
+      firstWord &&
+      normalized.has(firstWord.toLowerCase()) &&
+      header.toLowerCase() !== firstWord.toLowerCase()
+        ? firstWord
+        : header
+
+    familyByHeader.set(header, family)
+    if (!familyItems.has(family)) {
+      familyItems.set(family, [])
+    }
+    familyItems.get(family)?.push(header)
+  })
+
+  const emittedFamilies = new Set<string>()
+  const result: SideBarItem[] = []
+
+  headers.forEach((header) => {
+    const family = familyByHeader.get(header) ?? header
+    const items = familyItems.get(family) ?? [header]
+
+    if (items.length > 1) {
+      if (!emittedFamilies.has(family)) {
+        emittedFamilies.add(family)
+        result.push({ title: family, items })
+      }
+      return
+    }
+
+    result.push(header)
+  })
+
+  return result
+}
+
 export const sideBar = {
   Components: {
     icon: ArticleIcon,
-    items: components.map((component) => component.header).sort(),
+    items: groupOnlyFamilies(components.map((component) => component.header).sort()),
   },
 } as const

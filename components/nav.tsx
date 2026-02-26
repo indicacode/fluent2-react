@@ -75,7 +75,7 @@ export function NavSubItem({ children, href, onClick }: NavSubItemProps) {
       className={`block rounded-md px-9 py-2 text-sm transition-colors ${
         isActive
           ? "bg-primary/10 text-primary"
-          : "text-muted-foreground hover:bg-muted"
+          : "text-foreground/80 hover:bg-muted"
       }`}
     >
       {children}

@@ -1,65 +1,76 @@
 # fluent2-react
 
-React component library implementing the Microsoft Fluent 2 Design
-System.
+Fluent 2-inspired React components built with Base UI primitives, Tailwind CSS, and distributed through a shadcn/ui registry.
 
-Built on top of Base UI primitives and distributed via shadcn/ui
-registry.
+## Overview
 
-------------------------------------------------------------------------
+This repository contains:
 
-## ✨ Overview
+- A Next.js docs/playground app (`app/`)
+- Reusable components (`components/`)
+- Registry-ready component packages (`registry/fluent2tailwind/`)
 
-`fluent2-react` is a React implementation of Microsoft's Fluent 2 Design
-System, designed for modern applications built with React and Next.js.
+Core goals:
 
-The library provides:
+- Fluent 2 visual language and interaction patterns
+- Accessible components (keyboard + ARIA-focused)
+- Composition-friendly React APIs
+- Easy installation through shadcn registry
 
--   Accessible components (ARIA compliant)
--   Design token alignment with Fluent 2
--   Composition-friendly APIs
--   Tailwind-compatible styling
--   Integration with shadcn/ui registry
+## Tech Stack
 
-------------------------------------------------------------------------
+- React 19
+- Next.js 16 (App Router)
+- Base UI primitives
+- Tailwind CSS 4 + `tailwind-variants`
+- Jest + Testing Library
 
-## 🏗 Architecture
+## Quick Start (Local Development)
 
--   **Framework:** React 18+
--   **Primitives:** Base UI
--   **Styling:** TailwindCSS
--   **Registry:** shadcn/ui
--   **Design System:** Microsoft Fluent 2
+### Prerequisites
 
-Structure philosophy:
+- Node.js 20+ recommended
+- pnpm 10+
 
--   Headless-first where possible
--   Controlled & uncontrolled APIs
--   Variant-based styling
--   Token-driven theming
+### Run
 
-------------------------------------------------------------------------
+```bash
+pnpm install
+pnpm dev
+```
 
-## 📦 Installation
+App runs on `http://localhost:3000`.
 
-1) Initialize shadcn (if your project does not have `components.json` yet):
+### Useful Scripts
 
-``` bash
+```bash
+pnpm dev          # start development server
+pnpm build        # production build
+pnpm start        # run production server
+pnpm test         # run Jest tests
+pnpm test:watch   # watch mode tests
+pnpm test:ci      # CI-friendly test run
+pnpm typecheck    # TypeScript checks
+pnpm registry:build
+```
+
+## Install Components in Another Project
+
+1. Initialize shadcn (if needed):
+
+```bash
 pnpm dlx shadcn@latest init
 ```
 
-2) Add a component directly from the deployed registry:
+2. Install directly from the deployed registry:
 
-``` bash
+```bash
 pnpm dlx shadcn@latest add "https://agreeable-moss-048e15a0f.1.azurestaticapps.net/r/button.json"
 ```
 
-You can replace `button.json` with any component available under `/r/`
-(for example: `form.json`, `input.json`, `dialog.json`).
+3. Optional alias in your `components.json`:
 
-3) Optional: configure a short registry alias in `components.json`:
-
-``` json
+```json
 {
   "registries": {
     "@fluent2": "https://agreeable-moss-048e15a0f.1.azurestaticapps.net/r/{name}.json"
@@ -69,168 +80,125 @@ You can replace `button.json` with any component available under `/r/`
 
 Then install by alias:
 
-``` bash
-pnpm dlx shadcn@latest add @fluent2/form @fluent2/input @fluent2/button
+```bash
+pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 ```
 
-------------------------------------------------------------------------
+## Project Structure
 
-## 🎨 Design Tokens
+- `app/`: documentation pages and component demos
+- `components/`: source components used by docs/examples
+- `registry/fluent2tailwind/`: shadcn registry source files
+- `public/r/`: published registry JSON assets
+- `app/tests/`: tests for docs modules and behaviors
 
-Tokens follow Fluent 2 specification:
+## Component Status (Roadmap)
 
--   Color (brand, neutral, semantic)
--   Typography
--   Radius
--   Spacing
--   Elevation
--   Motion
+### Foundations
 
-------------------------------------------------------------------------
+- [ ] Color tokens
+- [ ] Typography tokens
+- [ ] Spacing scale
+- [ ] Radius scale
+- [ ] Elevation tokens
+- [ ] Motion tokens
+- [x] Icon system
 
-## 🧩 Components Roadmap
+### Inputs
 
-### 🔹 Foundations
+- [x] Button
+- [ ] IconButton
+- [x] ToggleButton
+- [ ] SplitButton
+- [x] Input (TextField)
+- [x] TextArea
+- [ ] PasswordField
+- [x] SearchBox
+- [x] Checkbox
+- [x] RadioGroup
+- [x] Switch
+- [x] Slider
+- [x] Select
+- [x] Combobox
+- [x] Dropdown
+- [ ] DatePicker
+- [ ] TimePicker
+- [ ] FileUpload
 
--   [ ] Color tokens
--   [ ] Typography tokens
--   [ ] Spacing scale
--   [ ] Radius scale
--   [ ] Elevation tokens
--   [ ] Motion tokens
--   [ ] Icon system
+### Navigation
 
-------------------------------------------------------------------------
+- [x] Menu
+- [x] ContextMenu
+- [x] Tabs
+- [x] Breadcrumb
+- [x] Pagination
+- [x] Navbar
+- [x] Sidebar / Drawer
+- [ ] CommandBar
+- [x] Toolbar
 
-### 🔹 Inputs
+### Feedback
 
--   [ ] Button
--   [ ] IconButton
--   [ ] ToggleButton
--   [ ] SplitButton
--   [ ] Input (TextField)
--   [ ] TextArea
--   [ ] PasswordField
--   [ ] SearchBox
--   [ ] Checkbox
--   [ ] RadioGroup
--   [ ] Switch
--   [ ] Slider
--   [ ] Select
--   [ ] Combobox
--   [ ] Dropdown
--   [ ] DatePicker
--   [ ] TimePicker
--   [ ] FileUpload
+- [x] Alert
+- [x] Toast
+- [x] Dialog
+- [ ] Modal
+- [x] Popover
+- [x] Tooltip
+- [x] ProgressBar
+- [x] Spinner
+- [x] Skeleton
+- [x] MessageBar
 
-------------------------------------------------------------------------
+### Data Display
 
-### 🔹 Navigation
+- [x] Card
+- [x] List
+- [x] Table
+- [x] DataGrid
+- [x] Avatar
+- [x] Badge
+- [x] Tag
+- [x] Divider
+- [x] Accordion
+- [x] TreeView
 
--   [ ] Menu
--   [ ] ContextMenu
--   [ ] Tabs
--   [ ] Breadcrumb
--   [ ] Pagination
--   [ ] Navbar
--   [ ] Sidebar / Drawer
--   [ ] CommandBar
--   [ ] Toolbar
+### Layout
 
-------------------------------------------------------------------------
+- [ ] Stack
+- [ ] Grid
+- [ ] Container
+- [ ] Separator
 
-### 🔹 Feedback
+### Advanced
 
--   [ ] Alert
--   [ ] Toast
--   [ ] Dialog
--   [ ] Modal
--   [ ] Popover
--   [ ] Tooltip
--   [ ] ProgressBar
--   [ ] Spinner
--   [ ] Skeleton
--   [ ] MessageBar
+- [x] CommandPalette
+- [ ] RichTextEditor
+- [ ] VirtualizedList
+- [ ] DataGrid Pro features
+- [ ] Theming system (dark/light/brand)
+- [ ] RTL support
 
-------------------------------------------------------------------------
+## Accessibility
 
-### 🔹 Data Display
+Target quality bar:
 
--   [ ] Card
--   [ ] List
--   [ ] Table
--   [ ] DataGrid
--   [ ] Avatar
--   [ ] Badge
--   [ ] Tag
--   [ ] Divider
--   [ ] Accordion
--   [ ] TreeView
+- WCAG 2.1 AA
+- ARIA best practices
+- Keyboard navigation
+- Focus management
 
-------------------------------------------------------------------------
+## Contributing
 
-### 🔹 Layout
+Contributions are welcome.
 
--   [ ] Stack
--   [ ] Grid
--   [ ] Container
--   [ ] Separator
+Before opening a PR:
 
-------------------------------------------------------------------------
+- Keep changes scoped
+- Include tests (or explain why not needed)
+- Share screenshots for visual changes
+- Use Conventional Commits (`feat(web): ...`, `fix(web): ...`)
 
-### 🔹 Advanced
+## License
 
--   [ ] CommandPalette
--   [ ] RichTextEditor
--   [ ] VirtualizedList
--   [ ] DataGrid Pro features
--   [ ] Theming system (dark/light/brand)
--   [ ] RTL support
-
-------------------------------------------------------------------------
-
-## 🧪 Accessibility
-
-All components aim to comply with:
-
--   WCAG 2.1 AA
--   ARIA best practices
--   Keyboard navigation
--   Focus management
-
-------------------------------------------------------------------------
-
-## 📚 Documentation
-
-Documentation will include:
-
--   Usage examples
--   Accessibility notes
--   Theming guide
--   Design token reference
--   Integration examples (Next.js)
-
-------------------------------------------------------------------------
-
-## 🛣 Roadmap
-
-1.  Foundations
-2.  Core Inputs
-3.  Navigation primitives
-4.  Feedback components
-5.  DataGrid
-6.  Theming system
-7.  Advanced patterns
-
-------------------------------------------------------------------------
-
-## 🤝 Contributing
-
-Contributions are welcome.\
-Please open an issue before large architectural changes.
-
-------------------------------------------------------------------------
-
-## 📄 License
-
-MIT
+ISC

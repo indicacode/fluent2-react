@@ -1,23 +1,26 @@
 # fluent2-react
 
-Fluent 2-inspired React components built with Base UI primitives, Tailwind CSS, and distributed through a shadcn/ui registry.
+✨ Componentes React inspirados no Fluent 2, construidos com Base UI + Tailwind CSS e distribuidos via registry do shadcn/ui.
 
-## Overview
+---
 
-This repository contains:
+## 👋 Visao Geral
 
-- A Next.js docs/playground app (`app/`)
-- Reusable components (`components/`)
-- Registry-ready component packages (`registry/fluent2tailwind/`)
+Este repositorio junta:
 
-Core goals:
+- Uma aplicacao de docs/playground em Next.js (`app/`)
+- Componentes reutilizaveis (`components/`)
+- Pacotes prontos para registry (`registry/fluent2tailwind/`)
 
-- Fluent 2 visual language and interaction patterns
-- Accessible components (keyboard + ARIA-focused)
-- Composition-friendly React APIs
-- Easy installation through shadcn registry
+Objetivo do projeto:
 
-## Tech Stack
+- Levar a linguagem visual do Fluent 2 para React moderno
+- Entregar componentes acessiveis e composiveis
+- Facilitar a instalacao em outros projetos com `shadcn add`
+
+---
+
+## 🧰 Stack
 
 - React 19
 - Next.js 16 (App Router)
@@ -25,50 +28,54 @@ Core goals:
 - Tailwind CSS 4 + `tailwind-variants`
 - Jest + Testing Library
 
-## Quick Start (Local Development)
+---
 
-### Prerequisites
+## 🚀 Comecando Rapido (Local)
 
-- Node.js 20+ recommended
+### Pre-requisitos
+
+- Node.js 20+ (recomendado)
 - pnpm 10+
 
-### Run
+### Rodar localmente
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-App runs on `http://localhost:3000`.
+A aplicacao abre em `http://localhost:3000`.
 
-### Useful Scripts
+### Scripts uteis
 
 ```bash
-pnpm dev          # start development server
-pnpm build        # production build
-pnpm start        # run production server
-pnpm test         # run Jest tests
-pnpm test:watch   # watch mode tests
-pnpm test:ci      # CI-friendly test run
-pnpm typecheck    # TypeScript checks
+pnpm dev          # servidor de desenvolvimento
+pnpm build        # build de producao
+pnpm start        # sobe a build de producao
+pnpm test         # testes com Jest
+pnpm test:watch   # testes em modo watch
+pnpm test:ci      # execucao de testes para CI
+pnpm typecheck    # checagem TypeScript
 pnpm registry:build
 ```
 
-## Install Components in Another Project
+---
 
-1. Initialize shadcn (if needed):
+## 📦 Instalando Componentes em Outro Projeto
+
+1. Inicialize o shadcn (se necessario):
 
 ```bash
 pnpm dlx shadcn@latest init
 ```
 
-2. Install directly from the deployed registry:
+2. Instale direto do registry publicado:
 
 ```bash
 pnpm dlx shadcn@latest add "https://agreeable-moss-048e15a0f.1.azurestaticapps.net/r/button.json"
 ```
 
-3. Optional alias in your `components.json`:
+3. (Opcional) Configure alias em `components.json`:
 
 ```json
 {
@@ -78,23 +85,27 @@ pnpm dlx shadcn@latest add "https://agreeable-moss-048e15a0f.1.azurestaticapps.n
 }
 ```
 
-Then install by alias:
+Depois instale por alias:
 
 ```bash
 pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 ```
 
-## Project Structure
+---
 
-- `app/`: documentation pages and component demos
-- `components/`: source components used by docs/examples
-- `registry/fluent2tailwind/`: shadcn registry source files
-- `public/r/`: published registry JSON assets
-- `app/tests/`: tests for docs modules and behaviors
+## 🗂 Estrutura do Projeto
 
-## Component Status (Roadmap)
+- `app/`: paginas de documentacao e demos
+- `components/`: componentes fonte usados nos exemplos/docs
+- `registry/fluent2tailwind/`: arquivos do registry shadcn
+- `public/r/`: assets JSON publicados do registry
+- `app/tests/`: testes de modulos e comportamentos
 
-### Foundations
+---
+
+## 🧩 Status dos Componentes (Roadmap)
+
+### 🔹 Foundations
 
 - [ ] Color tokens
 - [ ] Typography tokens
@@ -104,7 +115,7 @@ pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 - [ ] Motion tokens
 - [x] Icon system
 
-### Inputs
+### 🔹 Inputs
 
 - [x] Button
 - [ ] IconButton
@@ -125,7 +136,7 @@ pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 - [ ] TimePicker
 - [ ] FileUpload
 
-### Navigation
+### 🔹 Navigation
 
 - [x] Menu
 - [x] ContextMenu
@@ -137,7 +148,7 @@ pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 - [ ] CommandBar
 - [x] Toolbar
 
-### Feedback
+### 🔹 Feedback
 
 - [x] Alert
 - [x] Toast
@@ -150,7 +161,7 @@ pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 - [x] Skeleton
 - [x] MessageBar
 
-### Data Display
+### 🔹 Data Display
 
 - [x] Card
 - [x] List
@@ -163,14 +174,14 @@ pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 - [x] Accordion
 - [x] TreeView
 
-### Layout
+### 🔹 Layout
 
 - [ ] Stack
 - [ ] Grid
 - [ ] Container
 - [ ] Separator
 
-### Advanced
+### 🔹 Advanced
 
 - [x] CommandPalette
 - [ ] RichTextEditor
@@ -179,26 +190,32 @@ pnpm dlx shadcn@latest add @fluent2/button @fluent2/input @fluent2/dialog
 - [ ] Theming system (dark/light/brand)
 - [ ] RTL support
 
-## Accessibility
+---
 
-Target quality bar:
+## ♿ Acessibilidade
+
+Meta de qualidade:
 
 - WCAG 2.1 AA
-- ARIA best practices
-- Keyboard navigation
+- Boas praticas de ARIA
+- Navegacao por teclado
 - Focus management
 
-## Contributing
+---
 
-Contributions are welcome.
+## 🤝 Contribuindo
 
-Before opening a PR:
+Contribuicoes sao bem-vindas.
 
-- Keep changes scoped
-- Include tests (or explain why not needed)
-- Share screenshots for visual changes
+Antes de abrir PR:
+
+- Mantenha mudancas pequenas e objetivas
+- Inclua testes (ou explique por que nao precisa)
+- Anexe screenshots em mudancas visuais
 - Use Conventional Commits (`feat(web): ...`, `fix(web): ...`)
 
-## License
+---
+
+## 📄 Licenca
 
 ISC

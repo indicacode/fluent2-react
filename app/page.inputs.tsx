@@ -34,6 +34,7 @@ import { progressbar_card } from "./component-cards/progressbar"
 import { radiogroup_card } from "./component-cards/radiogroup"
 import { rating_card } from "./component-cards/rating"
 import { ratingdisplay_card } from "./component-cards/ratingdisplay"
+import { ribbon_card } from "./component-cards/ribbon"
 import { searchbox_card } from "./component-cards/searchbox"
 import { select_card } from "./component-cards/select"
 import { skeleton_card } from "./component-cards/skeleton"
@@ -97,6 +98,7 @@ export const components = [
   switch_card,
   textarea_card,
   radiogroup_card,
+  ribbon_card,
   rating_card,
   ratingdisplay_card,
   card_card,

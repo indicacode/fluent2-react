@@ -9,7 +9,7 @@ const tabsSlots = tv({
     list:
       "inline-flex h-9 items-center justify-center rounded-lg bg-transparent p-1 text-muted-foreground",
     trigger:
-      "inline-flex items-center justify-center px-3 py-1 text-sm font-medium whitespace-nowrap transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-b-2 data-[state=active]:border-b-primary data-[state=active]:text-foreground",
+      "inline-flex items-center justify-center px-3 py-1 text-sm font-medium whitespace-nowrap transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 data-[active]:border-b-2 data-[active]:border-b-primary data-[active]:text-foreground",
     content:
       "mt-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-hidden text-foreground",
   },

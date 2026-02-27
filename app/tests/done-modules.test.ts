@@ -70,6 +70,7 @@ const modules: string[] = [
   "../../components/radio-group",
   "../../components/rating",
   "../../components/rating-display",
+  "../../components/ribbon",
   "../../components/resizable",
   "../../components/scroll-area",
   "../../components/searchbox",

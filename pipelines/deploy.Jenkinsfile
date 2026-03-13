@@ -46,20 +46,6 @@ pipeline {
           }
         }
 
-//         stage('Test') {
-//           when {
-//             anyOf {
-//               branch 'main'
-//               branch 'development'
-//             }
-//           }
-//           steps {
-//             dir("${env.WORKING_DIRECTORY}") {
-//               sh 'make test'
-//             }
-//           }
-//         }
-
         stage('Deploy to Production') {
           when {
             branch 'main'
